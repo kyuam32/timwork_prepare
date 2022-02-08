@@ -1,0 +1,366 @@
+[
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "기초파일작업",
+    "processName": "기초파일작업",
+    "stdProcessCd": "P00242"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "굴착작업",
+    "processName": "굴착작업",
+    "stdProcessCd": "P00243"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "발파작업",
+    "processName": "발파 작업",
+    "stdProcessCd": "P00244"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "흙막이지보공작업",
+    "processName": "흙막이 지보공 작업",
+    "stdProcessCd": "P00245"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "되메움작업",
+    "processName": "되메움 작업",
+    "stdProcessCd": "P00246"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "거푸집작업",
+    "processName": "거푸집 작업",
+    "stdProcessCd": "P00247"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "갱폼작업",
+    "processName": "갱폼 작업",
+    "stdProcessCd": "P00248"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "라이닝거푸집작업",
+    "processName": "라이닝 거푸집 작업",
+    "stdProcessCd": "P00249"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "철근작업",
+    "processName": "철근 작업",
+    "stdProcessCd": "P00250"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "콘크리트작업",
+    "processName": "콘크리트 작업",
+    "stdProcessCd": "P00251"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "철골작업",
+    "processName": "철골 작업",
+    "stdProcessCd": "P00252"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "조적,미장및견출작업",
+    "processName": "조적, 미장 및 견출 작업",
+    "stdProcessCd": "P00253"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "방수작업",
+    "processName": "방수 작업",
+    "stdProcessCd": "P00254"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "석재및타일작업",
+    "processName": "석재 및 타일 작업",
+    "stdProcessCd": "P00255"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "도장작업",
+    "processName": "도장작업",
+    "stdProcessCd": "P00256"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "금속및잡철물작업",
+    "processName": "금속 및 잡철물 작업",
+    "stdProcessCd": "P00257"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "창호및유리작업",
+    "processName": "창호 및 유리 작업",
+    "stdProcessCd": "P00258"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "수장작업",
+    "processName": "수장 작업",
+    "stdProcessCd": "P00259"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "판넬등외부마감작업",
+    "processName": "판넬 등 외부 마감 작업",
+    "stdProcessCd": "P00260"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "전기설비작업",
+    "processName": "전기설비 작업",
+    "stdProcessCd": "P00261"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "기계설비작업",
+    "processName": "기계설비 작업",
+    "stdProcessCd": "P00262"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "엘리베이터설치작업",
+    "processName": "엘리베이터 설치 작업",
+    "stdProcessCd": "P00263"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "맨홀및관부설작업",
+    "processName": "맨홀 및 관 부설 작업",
+    "stdProcessCd": "P00264"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "조경작업",
+    "processName": "조경작업",
+    "stdProcessCd": "P00265"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "부대토목작업",
+    "processName": "부대토목 작업",
+    "stdProcessCd": "P00266"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "가설도로작업",
+    "processName": "가설도로 작업",
+    "stdProcessCd": "P00267"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "지장물조사및이설작업",
+    "processName": "지장물 조사 및 이설 작업",
+    "stdProcessCd": "P00268"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "제작장설치작업",
+    "processName": "제작장 설치 작업",
+    "stdProcessCd": "P00269"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "슬립폼(슬라이딩폼)작업",
+    "processName": "슬립폼(슬라이딩폼)작업",
+    "stdProcessCd": "P00270"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "케이슨작업",
+    "processName": "케이슨 작업",
+    "stdProcessCd": "P00271"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "강교설치작업",
+    "processName": "강교 설치 작업",
+    "stdProcessCd": "P00272"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "PSC교량작업",
+    "processName": "PSC 교량 작업",
+    "stdProcessCd": "P00273"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "포장작업",
+    "processName": "포장 작업",
+    "stdProcessCd": "P00274"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "포설및다짐작업",
+    "processName": "포설 및 다짐 작업",
+    "stdProcessCd": "P00275"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "특수교량작업",
+    "processName": "특수교량 작업",
+    "stdProcessCd": "P00276"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "수직구작업",
+    "processName": "수직구 작업",
+    "stdProcessCd": "P00277"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "갱구부작업",
+    "processName": "갱구부 작업",
+    "stdProcessCd": "P00278"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "터널굴착작업",
+    "processName": "터널굴착 작업",
+    "stdProcessCd": "P00279"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "터널보강작업",
+    "processName": "터널보강 작업",
+    "stdProcessCd": "P00280"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "터널방수작업",
+    "processName": "터널방수작업",
+    "stdProcessCd": "P00281"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "터널배수작업",
+    "processName": "터널 배수 작업",
+    "stdProcessCd": "P00282"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "특수터널작업",
+    "processName": "특수터널작업",
+    "stdProcessCd": "P00283"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "가제철(물막이)작업",
+    "processName": "가제철(물막이) 작업",
+    "stdProcessCd": "P00284"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "그라우팅작업",
+    "processName": "그라우팅 작업",
+    "stdProcessCd": "P00285"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "특수댐작업",
+    "processName": "특수댐 작업",
+    "stdProcessCd": "P00286"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "가설플랜트작업",
+    "processName": "가설플랜트 작업",
+    "stdProcessCd": "P00287"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "작업환경",
+    "processName": "작업 환경",
+    "stdProcessCd": "P00288"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "안전가시설작업",
+    "processName": "안전가시설 작업",
+    "stdProcessCd": "P00289"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "가설전기작업",
+    "processName": "가설전기 작업",
+    "stdProcessCd": "P00290"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "양중기작업",
+    "processName": "양중기 작업",
+    "stdProcessCd": "P00291"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "위험기계기구작업",
+    "processName": "위험기계기구 작업",
+    "stdProcessCd": "P00292"
+  },
+  {
+    "bizCode1Nm": "건설업",
+    "bizCode2Nm": "건설업",
+    "bizCode3Nm": "건설기계관리사업",
+    "processName": "건설기계관리",
+    "stdProcessCd": "P00293"
+  }
+]

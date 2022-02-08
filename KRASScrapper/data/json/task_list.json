@@ -1,0 +1,1250 @@
+[
+  {
+    "processName": "기초파일작업",
+    "stdTaskCd": "P00242",
+    "taskName": "기초파일 자재, 장비반입, 운반, 보관",
+    "taskDesc": "파일을 박기위해 필요한 장비를 반입하고 기초파일을 운반하여 보관하는 작업",
+    "taskMachines": "지게차",
+    "stdProcessCd": "T01186"
+  },
+  {
+    "processName": "기초파일작업",
+    "stdTaskCd": "P00242",
+    "taskName": "기초파일 천공",
+    "taskDesc": "파일을 박기위해 지반에 구멍을 내는 작업",
+    "taskMachines": "굴삭기, 천공기, 항타기",
+    "stdProcessCd": "T01187"
+  },
+  {
+    "processName": "기초파일작업",
+    "stdTaskCd": "P00242",
+    "taskName": "기초파일 항타",
+    "taskDesc": "항타기와 해머를 이용하여 구구멍을 낸 지반에 파일을 박는 작업",
+    "taskMachines": "항타기, 해머",
+    "stdProcessCd": "T01188"
+  },
+  {
+    "processName": "기초파일작업",
+    "stdTaskCd": "P00242",
+    "taskName": "기초파일 두부정리",
+    "taskDesc": "지면위로 남은 파일을 계획선 레벨까지만 남기고 나머지는 컷팅하고 보강을 하는 작업",
+    "taskMachines": "파일커터장비",
+    "stdProcessCd": "T01189"
+  },
+  {
+    "processName": "굴착작업",
+    "stdTaskCd": "P00243",
+    "taskName": "굴착 장비반입",
+    "taskDesc": "장비반입 트럭으로 현장에 굴삭기 반입",
+    "taskMachines": "굴삭기, 운반트럭",
+    "stdProcessCd": "T01190"
+  },
+  {
+    "processName": "굴착작업",
+    "stdTaskCd": "P00243",
+    "taskName": "굴착",
+    "taskDesc": "굴삭기로 토사 굴착",
+    "taskMachines": "굴삭기, 운반트럭",
+    "stdProcessCd": "T01191"
+  },
+  {
+    "processName": "굴착작업",
+    "stdTaskCd": "P00243",
+    "taskName": "굴착 토사반출",
+    "taskDesc": "굴착된 토사를 운반트럭으로 반출하는 작업",
+    "taskMachines": "굴삭기, 운반트럭",
+    "stdProcessCd": "T01192"
+  },
+  {
+    "processName": "발파 작업",
+    "stdTaskCd": "P00244",
+    "taskName": "발파 천공",
+    "taskDesc": "천공기를 사용하여 폭약을 넣을 구멍을 만드는 작업",
+    "taskMachines": "천공기",
+    "stdProcessCd": "T01193"
+  },
+  {
+    "processName": "발파 작업",
+    "stdTaskCd": "P00244",
+    "taskName": "발파 장약",
+    "taskDesc": "천공구멍에 폭약을 넣는 작업",
+    "taskMachines": null,
+    "stdProcessCd": "T01194"
+  },
+  {
+    "processName": "발파 작업",
+    "stdTaskCd": "P00244",
+    "taskName": "발파",
+    "taskDesc": "폭약 발파하는 작업",
+    "taskMachines": "전기뇌관",
+    "stdProcessCd": "T01195"
+  },
+  {
+    "processName": "발파 작업",
+    "stdTaskCd": "P00244",
+    "taskName": "발파 암처리",
+    "taskDesc": "발파후 생긴 암석, 토사 등을 굴삭기로 퍼내는 작업",
+    "taskMachines": "굴삭기, 덤프트럭",
+    "stdProcessCd": "T01196"
+  },
+  {
+    "processName": "발파 작업",
+    "stdTaskCd": "P00244",
+    "taskName": "발파 화약고 관리",
+    "taskDesc": "사용하기위한 폭약이나 작업후 남은 폭약을 별도의 장소에 보관하여 관리하는 작업",
+    "taskMachines": null,
+    "stdProcessCd": "T01197"
+  },
+  {
+    "processName": "흙막이 지보공 작업",
+    "stdTaskCd": "P00245",
+    "taskName": "자재반입",
+    "taskDesc": "흙막이 지보공을 설치할 자재를 반입",
+    "taskMachines": "이동식 크레인",
+    "stdProcessCd": "T01198"
+  },
+  {
+    "processName": "흙막이 지보공 작업",
+    "stdTaskCd": "P00245",
+    "taskName": "흙막이 지보공 설치",
+    "taskDesc": "크레인을 이용하여 흙막이 지보공 설치",
+    "taskMachines": "이동식 크레인",
+    "stdProcessCd": "T01199"
+  },
+  {
+    "processName": "흙막이 지보공 작업",
+    "stdTaskCd": "P00245",
+    "taskName": "흙막이 지보공 해체",
+    "taskDesc": "설치된 흙막이 지보공을 해체하는 작업",
+    "taskMachines": "이동식 크레인",
+    "stdProcessCd": "T01200"
+  },
+  {
+    "processName": "흙막이 지보공 작업",
+    "stdTaskCd": "P00245",
+    "taskName": "자재반출",
+    "taskDesc": "자재 반출",
+    "taskMachines": "이동식 크레인",
+    "stdProcessCd": "T01201"
+  },
+  {
+    "processName": "되메움 작업",
+    "stdTaskCd": "P00246",
+    "taskName": "토사반입 및 되메움 실시",
+    "taskDesc": "토사를 반입하여 굴착면과 구조물 사이에 토사로 메우는 작업",
+    "taskMachines": "굴삭기, 운반트럭",
+    "stdProcessCd": "T01202"
+  },
+  {
+    "processName": "되메움 작업",
+    "stdTaskCd": "P00246",
+    "taskName": "토사 다짐",
+    "taskDesc": "되메움한 토사를 로울러를 이용하여 다짐하는 작업",
+    "taskMachines": "로울러",
+    "stdProcessCd": "T01203"
+  },
+  {
+    "processName": "거푸집 작업",
+    "stdTaskCd": "P00247",
+    "taskName": "자재반입, 가공·운반",
+    "taskDesc": "거푸집 자재를 반입하여 가공하는 작업",
+    "taskMachines": "목재가공용 둥근톱, 카고크레인",
+    "stdProcessCd": "T01204"
+  },
+  {
+    "processName": "거푸집 작업",
+    "stdTaskCd": "P00247",
+    "taskName": "거푸집 동바리 조립",
+    "taskDesc": "거푸집 동바리를 조립하는 작업",
+    "taskMachines": null,
+    "stdProcessCd": "T01205"
+  },
+  {
+    "processName": "거푸집 작업",
+    "stdTaskCd": "P00247",
+    "taskName": "거푸집 동바리 해체",
+    "taskDesc": "거푸집 동바리를 해체하는 작업",
+    "taskMachines": "작업발판",
+    "stdProcessCd": "T01206"
+  },
+  {
+    "processName": "거푸집 작업",
+    "stdTaskCd": "P00247",
+    "taskName": "거푸집 동바리 인양",
+    "taskDesc": "거푸집 동바리 인양하는 작업",
+    "taskMachines": "양중기",
+    "stdProcessCd": "T01207"
+  },
+  {
+    "processName": "갱폼 작업",
+    "stdTaskCd": "P00248",
+    "taskName": "자재반입",
+    "taskDesc": "갱폼 조립하기 위한 자재 반입하는 작업",
+    "taskMachines": "양중기",
+    "stdProcessCd": "T01208"
+  },
+  {
+    "processName": "갱폼 작업",
+    "stdTaskCd": "P00248",
+    "taskName": "조립",
+    "taskDesc": "반입된 자래로 갱폼 조립하는 작업",
+    "taskMachines": "타워크레인",
+    "stdProcessCd": "T01209"
+  },
+  {
+    "processName": "갱폼 작업",
+    "stdTaskCd": "P00248",
+    "taskName": "인양, 설치",
+    "taskDesc": "조립된 갱폼을 인양, 설치하는 작업",
+    "taskMachines": "양중기",
+    "stdProcessCd": "T01210"
+  },
+  {
+    "processName": "갱폼 작업",
+    "stdTaskCd": "P00248",
+    "taskName": "해체, 반출",
+    "taskDesc": "설치된 갱폼을 해체하는 작업",
+    "taskMachines": "타워크레인",
+    "stdProcessCd": "T01211"
+  },
+  {
+    "processName": "라이닝 거푸집 작업",
+    "stdTaskCd": "P00249",
+    "taskName": "라이닝 거푸집 자재 반입, 하역",
+    "taskDesc": "라이닝 거푸집 하역 작업",
+    "taskMachines": "크레인",
+    "stdProcessCd": "T01212"
+  },
+  {
+    "processName": "라이닝 거푸집 작업",
+    "stdTaskCd": "P00249",
+    "taskName": "라이닝 거푸집 설치",
+    "taskDesc": "라이닝 거푸집 설치 작업",
+    "taskMachines": "목제가공용 둥근톱, 크레인",
+    "stdProcessCd": "T01213"
+  },
+  {
+    "processName": "라이닝 거푸집 작업",
+    "stdTaskCd": "P00249",
+    "taskName": "라이닝 거푸집 해체",
+    "taskDesc": "라이닝 거푸집 해체 작업",
+    "taskMachines": "이동식 비계, 크레인",
+    "stdProcessCd": "T01214"
+  },
+  {
+    "processName": "철근 작업",
+    "stdTaskCd": "P00250",
+    "taskName": "철근반입",
+    "taskDesc": "철근 반입 작업",
+    "taskMachines": "지게차",
+    "stdProcessCd": "T01215"
+  },
+  {
+    "processName": "철근 작업",
+    "stdTaskCd": "P00250",
+    "taskName": "철근 가공 및 운반",
+    "taskDesc": "철근 가공 작업",
+    "taskMachines": "양중기, 철근 가공기",
+    "stdProcessCd": "T01216"
+  },
+  {
+    "processName": "철근 작업",
+    "stdTaskCd": "P00250",
+    "taskName": "철근 조립",
+    "taskDesc": "가공된 철근 조립",
+    "taskMachines": "용접기, 이동식 비계",
+    "stdProcessCd": "T01217"
+  },
+  {
+    "processName": "콘크리트 작업",
+    "stdTaskCd": "P00251",
+    "taskName": "콘크리트 반입, 운반",
+    "taskDesc": "레미콘 운반트럭에 콘크리트 운반",
+    "taskMachines": "레미콘 운반트럭, 펌프카",
+    "stdProcessCd": "T01218"
+  },
+  {
+    "processName": "콘크리트 작업",
+    "stdTaskCd": "P00251",
+    "taskName": "콘크리트 타설 및 다짐",
+    "taskDesc": "설비를 이용하여 거푸집내에 콘크리트 타설 및 다짐",
+    "taskMachines": "진동기, 피니셔, 호퍼",
+    "stdProcessCd": "T01219"
+  },
+  {
+    "processName": "콘크리트 작업",
+    "stdTaskCd": "P00251",
+    "taskName": "콘크리트 양생",
+    "taskDesc": "타설된 콘크리트를 양생시키는 과정",
+    "taskMachines": "열풍기",
+    "stdProcessCd": "T01220"
+  },
+  {
+    "processName": "철골 작업",
+    "stdTaskCd": "P00252",
+    "taskName": "부재반입 및 운반",
+    "taskDesc": "H-Beam 등 부재 반입 및 운반 작업",
+    "taskMachines": "크레인",
+    "stdProcessCd": "T01221"
+  },
+  {
+    "processName": "철골 작업",
+    "stdTaskCd": "P00252",
+    "taskName": "인양, 조립",
+    "taskDesc": "조립도에 따락 조립",
+    "taskMachines": "크레인",
+    "stdProcessCd": "T01222"
+  },
+  {
+    "processName": "철골 작업",
+    "stdTaskCd": "P00252",
+    "taskName": "데크플레이트 설치",
+    "taskDesc": "데크플레이트 설치",
+    "taskMachines": "용접기",
+    "stdProcessCd": "T01223"
+  },
+  {
+    "processName": "조적, 미장 및 견출 작업",
+    "stdTaskCd": "P00253",
+    "taskName": "자재반입 및 운반",
+    "taskDesc": "조적, 미장에 사용되는 자재 반입 및 운반 작업",
+    "taskMachines": "작업대차",
+    "stdProcessCd": "T01224"
+  },
+  {
+    "processName": "조적, 미장 및 견출 작업",
+    "stdTaskCd": "P00253",
+    "taskName": "조적 시공",
+    "taskDesc": "반입된 자재로 벽돌 등 쌓는 시공 작업",
+    "taskMachines": "이동식 비계",
+    "stdProcessCd": "T01225"
+  },
+  {
+    "processName": "조적, 미장 및 견출 작업",
+    "stdTaskCd": "P00253",
+    "taskName": "미장 및 견출시공",
+    "taskDesc": "미장 작업",
+    "taskMachines": "달비계",
+    "stdProcessCd": "T01226"
+  },
+  {
+    "processName": "방수 작업",
+    "stdTaskCd": "P00254",
+    "taskName": "방수면처리, 방수 및 보호몰탈 등 시공",
+    "taskDesc": "옥외, 지하실 내·외벽면 등의 누수를 방지하는 공정",
+    "taskMachines": "사다리, 이동식 대차, 이동식 비계",
+    "stdProcessCd": "T01227"
+  },
+  {
+    "processName": "석재 및 타일 작업",
+    "stdTaskCd": "P00255",
+    "taskName": "자재반입, 운반",
+    "taskDesc": "석재 및 타일 운반 작업",
+    "taskMachines": "윈치, 이동식비계",
+    "stdProcessCd": "T01228"
+  },
+  {
+    "processName": "석재 및 타일 작업",
+    "stdTaskCd": "P00255",
+    "taskName": "석재 및 타일붙임",
+    "taskDesc": "운반된 석재 및 타일을 벽에 시공하는 작업",
+    "taskMachines": null,
+    "stdProcessCd": "T01229"
+  },
+  {
+    "processName": "석재 및 타일 작업",
+    "stdTaskCd": "P00255",
+    "taskName": "타일줄눈, 코킹시공",
+    "taskDesc": "타일 사이마다 줄눈으로 마감처리하는 작업",
+    "taskMachines": null,
+    "stdProcessCd": "T01230"
+  },
+  {
+    "processName": "도장작업",
+    "stdTaskCd": "P00256",
+    "taskName": "면처리",
+    "taskDesc": "도장하기 전 벽체 등 면처리하는 작업",
+    "taskMachines": "핸드그라인더",
+    "stdProcessCd": "T01231"
+  },
+  {
+    "processName": "도장작업",
+    "stdTaskCd": "P00256",
+    "taskName": "실내 도장",
+    "taskDesc": "실내 도장 작업",
+    "taskMachines": "이에어콤프레셔",
+    "stdProcessCd": "T01232"
+  },
+  {
+    "processName": "도장작업",
+    "stdTaskCd": "P00256",
+    "taskName": "실외 도장",
+    "taskDesc": "실외 도장 작업",
+    "taskMachines": "고소작업차, 달비계",
+    "stdProcessCd": "T01233"
+  },
+  {
+    "processName": "금속 및 잡철물 작업",
+    "stdTaskCd": "P00257",
+    "taskName": "자재반입, 가공, 운반",
+    "taskDesc": "금속 및 잡철물 자재를 반입, 운반하고 사용처에 맞게 가공하는 작업",
+    "taskMachines": "고속 절단기, 리프트, 운반차량, 지게차",
+    "stdProcessCd": "T01234"
+  },
+  {
+    "processName": "금속 및 잡철물 작업",
+    "stdTaskCd": "P00257",
+    "taskName": "금속 및 잡철물 시공",
+    "taskDesc": "운반 및 가공된 금속 및 잡철물을 시공하는 작업",
+    "taskMachines": "교류아크용접기, 말비계, 연삭기, 이동식비계, 핸드그라인더",
+    "stdProcessCd": "T01235"
+  },
+  {
+    "processName": "창호 및 유리 작업",
+    "stdTaskCd": "P00258",
+    "taskName": "자재반입, 가공, 운반",
+    "taskDesc": "창호 및 유리 설치에 필요한 자재를 반입, 운반하는 과정",
+    "taskMachines": "고소작업대차 스카이, 고속절단기, 윈치, 지게차",
+    "stdProcessCd": "T01236"
+  },
+  {
+    "processName": "창호 및 유리 작업",
+    "stdTaskCd": "P00258",
+    "taskName": "창호 및 유리 설치",
+    "taskDesc": "운반된 자재를 창호 틀에 맞추어 설치하는 과정",
+    "taskMachines": "곤도라, 달비계, 이동식비계",
+    "stdProcessCd": "T01237"
+  },
+  {
+    "processName": "수장 작업",
+    "stdTaskCd": "P00259",
+    "taskName": "수장 자재반입, 운반",
+    "taskDesc": "수장 자재를 반입하고 운반하는 작업",
+    "taskMachines": "리프트, 운반 차량",
+    "stdProcessCd": "T01238"
+  },
+  {
+    "processName": "수장 작업",
+    "stdTaskCd": "P00259",
+    "taskName": "수장 시공(석고보드, 도배 등)",
+    "taskDesc": "석고보드, 도배, 카펫트 등으로 설치 또는 시공하는 작업",
+    "taskMachines": "사다리, 소형 절단기, 에어 콤프레샤, 용접기, 이동식 비계, 타카건",
+    "stdProcessCd": "T01239"
+  },
+  {
+    "processName": "판넬 등 외부 마감 작업",
+    "stdTaskCd": "P00260",
+    "taskName": "판넬 등 외부마감 자재반입",
+    "taskDesc": "판넬 등 외부마감 자재를 크레인으로 반입하는 작업",
+    "taskMachines": "이동식크레인",
+    "stdProcessCd": "T01240"
+  },
+  {
+    "processName": "판넬 등 외부 마감 작업",
+    "stdTaskCd": "P00260",
+    "taskName": "판넬 등 외부마감 시공",
+    "taskDesc": "판넬 등 외부마감 자재를 외부 벽에 설치하는 작업",
+    "taskMachines": "곤도라",
+    "stdProcessCd": "T01241"
+  },
+  {
+    "processName": "전기설비 작업",
+    "stdTaskCd": "P00261",
+    "taskName": "전기설비 자재반입, 가공, 운반",
+    "taskDesc": "전기설비 자재 반입하는 작업",
+    "taskMachines": "운반차량, 이동식크레인",
+    "stdProcessCd": "T01242"
+  },
+  {
+    "processName": "전기설비 작업",
+    "stdTaskCd": "P00261",
+    "taskName": "전기설비 배선",
+    "taskDesc": "전기 공급하기 위한 배관공사 작업",
+    "taskMachines": "말비계, 사다리, 이동식비계",
+    "stdProcessCd": "T01243"
+  },
+  {
+    "processName": "전기설비 작업",
+    "stdTaskCd": "P00261",
+    "taskName": "전기설비 설치",
+    "taskDesc": "변압기, 계량기 등 전기설비 설치 작업",
+    "taskMachines": "계량이 전기설비, 변압기 전기설비, 사다리, 크레인",
+    "stdProcessCd": "T01244"
+  },
+  {
+    "processName": "전기설비 작업",
+    "stdTaskCd": "P00261",
+    "taskName": "전기 특고압 선로, 활선 및 전주시공",
+    "taskDesc": "전주, 철탑 등에 이루어지는 특고압선로 활선근접 작업",
+    "taskMachines": "이동식 크레인",
+    "stdProcessCd": "T01245"
+  },
+  {
+    "processName": "기계설비 작업",
+    "stdTaskCd": "P00262",
+    "taskName": "기계설비 자재반입, 가공, 운반",
+    "taskDesc": "배관, 덕트 등의 자재를 반입, 운반하는 작업",
+    "taskMachines": "운반트럭, 지게차",
+    "stdProcessCd": "T01246"
+  },
+  {
+    "processName": "기계설비 작업",
+    "stdTaskCd": "P00262",
+    "taskName": "기계설비 설치",
+    "taskDesc": "배관, 덕트 등의 설비를 설치하는 작업",
+    "taskMachines": "사다리, 체인블록, 탱크",
+    "stdProcessCd": "T01247"
+  },
+  {
+    "processName": "엘리베이터 설치 작업",
+    "stdTaskCd": "P00263",
+    "taskName": "엘리베이터 기계설치",
+    "taskDesc": "엘리베이터 피트의 상부에 인양기계 설치 작업",
+    "taskMachines": "엘리베이터, 와이어휠",
+    "stdProcessCd": "T01248"
+  },
+  {
+    "processName": "엘리베이터 설치 작업",
+    "stdTaskCd": "P00263",
+    "taskName": "엘리베이터 승강구 조립",
+    "taskDesc": "엘리베이터 승강구를 조립한 후 인양로프로 상부로 인양하는 작업",
+    "taskMachines": "승강구 부재, 와이어로프, 작업공구",
+    "stdProcessCd": "T01249"
+  },
+  {
+    "processName": "엘리베이터 설치 작업",
+    "stdTaskCd": "P00263",
+    "taskName": "엘리베이터 가이드레일 설치",
+    "taskDesc": "피트 벽면에 가이드레일을 설치하는 작업",
+    "taskMachines": "가이드레일, 승강기",
+    "stdProcessCd": "T01250"
+  },
+  {
+    "processName": "맨홀 및 관 부설 작업",
+    "stdTaskCd": "P00264",
+    "taskName": "맨홀 및 관 부설 굴착",
+    "taskDesc": "굴삭기를 이용하여 지면을 굴착하는 작업",
+    "taskMachines": "굴삭기, 운반차량",
+    "stdProcessCd": "T01251"
+  },
+  {
+    "processName": "맨홀 및 관 부설 작업",
+    "stdTaskCd": "P00264",
+    "taskName": "맨홀 및 관 부설",
+    "taskDesc": "굴착된 지면에 맨홀 또는 관을 부설하는 작업",
+    "taskMachines": "굴삭기, 이동식 크레인",
+    "stdProcessCd": "T01252"
+  },
+  {
+    "processName": "조경작업",
+    "stdTaskCd": "P00265",
+    "taskName": "조경부지정리",
+    "taskDesc": "조경 식재, 조형물 등을 설치할 부지를 정리",
+    "taskMachines": "굴삭기",
+    "stdProcessCd": "T01253"
+  },
+  {
+    "processName": "조경작업",
+    "stdTaskCd": "P00265",
+    "taskName": "조경시공 및 설치",
+    "taskDesc": "조경 식재, 조형물 등을 설치",
+    "taskMachines": "굴삭기, 이동식크레인",
+    "stdProcessCd": "T01254"
+  },
+  {
+    "processName": "부대토목 작업",
+    "stdTaskCd": "P00266",
+    "taskName": "부대토목 옹벽시공",
+    "taskDesc": "건축물 주변 대지내에 옹벽시공하는 작업",
+    "taskMachines": "굴삭기, 비계",
+    "stdProcessCd": "T01255"
+  },
+  {
+    "processName": "부대토목 작업",
+    "stdTaskCd": "P00266",
+    "taskName": "부대토목 구내 포장",
+    "taskDesc": "부지정리 및 구내포장",
+    "taskMachines": "로울러",
+    "stdProcessCd": "T01256"
+  },
+  {
+    "processName": "가설도로 작업",
+    "stdTaskCd": "P00267",
+    "taskName": "벌목 및 표토제거",
+    "taskDesc": "벌목 및 표토제거 작업",
+    "taskMachines": "벌목장비",
+    "stdProcessCd": "T01257"
+  },
+  {
+    "processName": "가설도로 작업",
+    "stdTaskCd": "P00267",
+    "taskName": "가설도로 시공",
+    "taskDesc": "가설도로 시공",
+    "taskMachines": "굴삭기, 블도저",
+    "stdProcessCd": "T01258"
+  },
+  {
+    "processName": "지장물 조사 및 이설 작업",
+    "stdTaskCd": "P00268",
+    "taskName": "지장물 조사 굴착",
+    "taskDesc": "전주 및 지중 전력구, 가스관 상하수도관 조사를 위해 굴착",
+    "taskMachines": "굴삭기",
+    "stdProcessCd": "T01259"
+  },
+  {
+    "processName": "지장물 조사 및 이설 작업",
+    "stdTaskCd": "P00268",
+    "taskName": "지장물 보호, 보강",
+    "taskDesc": "전주 및 지중 전력구, 가스관 상하수도관 보호 및 보강",
+    "taskMachines": null,
+    "stdProcessCd": "T01260"
+  },
+  {
+    "processName": "지장물 조사 및 이설 작업",
+    "stdTaskCd": "P00268",
+    "taskName": "지장물 이설",
+    "taskDesc": "전주 및 지중 전력구, 가스관 상하수도관 이설",
+    "taskMachines": "이동식크레인",
+    "stdProcessCd": "T01261"
+  },
+  {
+    "processName": "지장물 조사 및 이설 작업",
+    "stdTaskCd": "P00268",
+    "taskName": "지장물 되메움",
+    "taskDesc": "전주 및 지중 전력구, 가스관 상하수도관 되메움",
+    "taskMachines": null,
+    "stdProcessCd": "T01262"
+  },
+  {
+    "processName": "제작장 설치 작업",
+    "stdTaskCd": "P00269",
+    "taskName": "제작장 부지 조성",
+    "taskDesc": "건설현재내 부재를 제작하기 위한 제작장 부지 조성",
+    "taskMachines": "굴삭기",
+    "stdProcessCd": "T01263"
+  },
+  {
+    "processName": "제작장 설치 작업",
+    "stdTaskCd": "P00269",
+    "taskName": "제작장 설치",
+    "taskDesc": "현장재에 제작장 설치",
+    "taskMachines": "교류아크용접기",
+    "stdProcessCd": "T01264"
+  },
+  {
+    "processName": "슬립폼(슬라이딩폼)작업",
+    "stdTaskCd": "P00270",
+    "taskName": "슬립폼 제작",
+    "taskDesc": "슬라이딩폼 제작",
+    "taskMachines": "이동식크레인",
+    "stdProcessCd": "T01265"
+  },
+  {
+    "processName": "슬립폼(슬라이딩폼)작업",
+    "stdTaskCd": "P00270",
+    "taskName": "슬립폼 인양",
+    "taskDesc": "슬라이딩폼 인양",
+    "taskMachines": "리프트",
+    "stdProcessCd": "T01266"
+  },
+  {
+    "processName": "슬립폼(슬라이딩폼)작업",
+    "stdTaskCd": "P00270",
+    "taskName": "슬립폼 해체",
+    "taskDesc": "슬라이딩폼 해체작업",
+    "taskMachines": "이동식크레인",
+    "stdProcessCd": "T01267"
+  },
+  {
+    "processName": "케이슨 작업",
+    "stdTaskCd": "P00271",
+    "taskName": "케이슨 제작",
+    "taskDesc": "해안구조물의 안벽 등을 설체하기위하여 대형 콘크리트 구조물 제작",
+    "taskMachines": "이동식크레인",
+    "stdProcessCd": "T01268"
+  },
+  {
+    "processName": "케이슨 작업",
+    "stdTaskCd": "P00271",
+    "taskName": "케이슨 운반 및 거치",
+    "taskDesc": "케이슨을 운반",
+    "taskMachines": "해상크레인",
+    "stdProcessCd": "T01269"
+  },
+  {
+    "processName": "케이슨 작업",
+    "stdTaskCd": "P00271",
+    "taskName": "케이슨 내 속채움",
+    "taskDesc": "콘크리트로 케이슨 내 속채움",
+    "taskMachines": "크람셀",
+    "stdProcessCd": "T01270"
+  },
+  {
+    "processName": "강교 설치 작업",
+    "stdTaskCd": "P00272",
+    "taskName": "부재반입",
+    "taskDesc": "강부재 반입",
+    "taskMachines": "운반차량, 크레인",
+    "stdProcessCd": "T01271"
+  },
+  {
+    "processName": "강교 설치 작업",
+    "stdTaskCd": "P00272",
+    "taskName": "운반, 인양",
+    "taskDesc": "크레인으로 부재 운반, 인양",
+    "taskMachines": "사다리, 크레인",
+    "stdProcessCd": "T01272"
+  },
+  {
+    "processName": "강교 설치 작업",
+    "stdTaskCd": "P00272",
+    "taskName": "조립",
+    "taskDesc": "볼트, 너트 등을 사용하여 조립",
+    "taskMachines": "굴삭기, 달대비계",
+    "stdProcessCd": "T01273"
+  },
+  {
+    "processName": "강교 설치 작업",
+    "stdTaskCd": "P00272",
+    "taskName": "슬라브 시공",
+    "taskDesc": "콘크리트로 슬라브 시공",
+    "taskMachines": "크레인, 펌프카",
+    "stdProcessCd": "T01274"
+  },
+  {
+    "processName": "PSC 교량 작업",
+    "stdTaskCd": "P00273",
+    "taskName": "PSC거더 제작",
+    "taskDesc": "지상에서 PSC거더를 제작",
+    "taskMachines": "이동식크레인",
+    "stdProcessCd": "T01275"
+  },
+  {
+    "processName": "PSC 교량 작업",
+    "stdTaskCd": "P00273",
+    "taskName": "거더 인양 및 상차",
+    "taskDesc": "제작된 거더를 인양 및 상차",
+    "taskMachines": "운반차량, 크레인",
+    "stdProcessCd": "T01276"
+  },
+  {
+    "processName": "PSC 교량 작업",
+    "stdTaskCd": "P00273",
+    "taskName": "거더 운반",
+    "taskDesc": "제작된 거더 운반",
+    "taskMachines": "운반차량",
+    "stdProcessCd": "T01277"
+  },
+  {
+    "processName": "PSC 교량 작업",
+    "stdTaskCd": "P00273",
+    "taskName": "거더 인양 및 거치",
+    "taskDesc": "운반된 거더 인양 및 거치",
+    "taskMachines": "굴삭기, 크레인",
+    "stdProcessCd": "T01278"
+  },
+  {
+    "processName": "PSC 교량 작업",
+    "stdTaskCd": "P00273",
+    "taskName": "CrossBeam 설치",
+    "taskDesc": "거더에 CrossBeam 설치",
+    "taskMachines": null,
+    "stdProcessCd": "T01279"
+  },
+  {
+    "processName": "PSC 교량 작업",
+    "stdTaskCd": "P00273",
+    "taskName": "슬라브 시공",
+    "taskDesc": "콘크리트로 슬라브 시공",
+    "taskMachines": "캔틸레버, 크레인, 펌프카",
+    "stdProcessCd": "T01280"
+  },
+  {
+    "processName": "포장 작업",
+    "stdTaskCd": "P00274",
+    "taskName": "포장 장비 반입",
+    "taskDesc": "운반차량으로 반입된 롤러기 등을 인양로프로 인양 하역하는 작업",
+    "taskMachines": "롤러기, 운반차량, 이동식 크레인",
+    "stdProcessCd": "T01281"
+  },
+  {
+    "processName": "포장 작업",
+    "stdTaskCd": "P00274",
+    "taskName": "포장 시공",
+    "taskDesc": "도로 등에 아스팔트, 콘크리트를 포설하여 롤러기를 이용해 포장층을 형성하는 작업",
+    "taskMachines": "롤러기, 아스콘 버켓 롤러",
+    "stdProcessCd": "T01282"
+  },
+  {
+    "processName": "포설 및 다짐 작업",
+    "stdTaskCd": "P00275",
+    "taskName": "포설 및 다짐",
+    "taskDesc": "도로면 하부에 자갈, 토사 등 보조기층을 포설하고 다짐하는 작업",
+    "taskMachines": "굴삭기, 덤프트럭",
+    "stdProcessCd": "T01283"
+  },
+  {
+    "processName": "특수교량 작업",
+    "stdTaskCd": "P00276",
+    "taskName": "특수교량(FCM공법)",
+    "taskDesc": "PC Box Girder교의 현장타설에 의한 가설공법으로써, 교각에 주두부를 설치하고 특수한 가설장비(작업차 : Form Traveller)를 이용하여 한 Segment씩 현장에서 콘크리트를 타설한 후 Prestress를 도입하면서 이어나가는 공법이다.",
+    "taskMachines": "거푸집 등, 워킹타워, 작업차, 특수작업대차",
+    "stdProcessCd": "T01284"
+  },
+  {
+    "processName": "특수교량 작업",
+    "stdTaskCd": "P00276",
+    "taskName": "특수교량(MSS공법)",
+    "taskDesc": "이동식 비계공법으로 교량의 상부구조를 시공할 때 기계화된 거푸집이 부착된 특수한 이동식 비계를 이용하여 현장치기로 한 경간씩 시공을 진행하는 공법이다.",
+    "taskMachines": "세그먼트 등, 이동식비계, 이동식크레인",
+    "stdProcessCd": "T01285"
+  },
+  {
+    "processName": "특수교량 작업",
+    "stdTaskCd": "P00276",
+    "taskName": "특수교량(ILM공법)",
+    "taskDesc": "ILM은 교량의 상부구조물을 교대후방에 미리 설치한 제작장에서 1-Segment (일반적으로 1Span을 2~3등분)씩 제작하여, 교량의 지간을 통과할 수 있는 평형 압축력을 Post-Tension방법에 의해 미리 제작된 상부구조물에 Prestress를 도입시킨 후 교량의 교축방향으로 특수 압출장비를 이용하여 밀어내는 방법으로 Teflon판(PTFE Sliding Pad)의 개발로 아주 경제적이고 편리한 공법이다. ",
+    "taskMachines": "거푸집 등, 긴장장비",
+    "stdProcessCd": "T01286"
+  },
+  {
+    "processName": "특수교량 작업",
+    "stdTaskCd": "P00276",
+    "taskName": "특수교량(사장교)",
+    "taskDesc": "거더교의 하중을 케이블로 지지하는 형식의 교량을 건설하는 작업",
+    "taskMachines": "바지선, 워킹타워, 인양장비 등, 특수작업차",
+    "stdProcessCd": "T01287"
+  },
+  {
+    "processName": "특수교량 작업",
+    "stdTaskCd": "P00276",
+    "taskName": "특수교량(현수교)",
+    "taskDesc": "케이블에 의해 지지되는 형식의 교량을 건설하는 작업",
+    "taskMachines": "바지선, 워킹타워, 인양장비 등",
+    "stdProcessCd": "T01288"
+  },
+  {
+    "processName": "수직구 작업",
+    "stdTaskCd": "P00277",
+    "taskName": "수직구 보강",
+    "taskDesc": "지반을 수직으로 굴착하기 위해 보강하는 작업",
+    "taskMachines": "보링기, 혼합기",
+    "stdProcessCd": "T01289"
+  },
+  {
+    "processName": "수직구 작업",
+    "stdTaskCd": "P00277",
+    "taskName": "수직구 굴착",
+    "taskDesc": "지반을 수직으로 굴착하는 공정",
+    "taskMachines": "굴착장비, 인양장비",
+    "stdProcessCd": "T01290"
+  },
+  {
+    "processName": "수직구 작업",
+    "stdTaskCd": "P00277",
+    "taskName": "수직구 토사반출",
+    "taskDesc": "굴착한 토사를 반출하는 작업",
+    "taskMachines": "덤프트럭, 인양장비",
+    "stdProcessCd": "T01291"
+  },
+  {
+    "processName": "수직구 작업",
+    "stdTaskCd": "P00277",
+    "taskName": "수직구 흙막이 지보공 시공",
+    "taskDesc": "수직구에 흙막이 지보공을 시공하는 작업",
+    "taskMachines": "인양장비",
+    "stdProcessCd": "T01292"
+  },
+  {
+    "processName": "갱구부 작업",
+    "stdTaskCd": "P00278",
+    "taskName": "벌목 및 표토제거",
+    "taskDesc": "터널 굴진전에 벌목 및 표토를 제거하는 작업",
+    "taskMachines": "굴삭기, 기계톱, 덤프트럭",
+    "stdProcessCd": "T01293"
+  },
+  {
+    "processName": "갱구부 작업",
+    "stdTaskCd": "P00278",
+    "taskName": "갱구부 보강",
+    "taskDesc": "터널 굴진전에 지반이 연약한 갱 입구를 보강하는 작업",
+    "taskMachines": "그라우팅 혼합기, 달비계, 천공기",
+    "stdProcessCd": "T01294"
+  },
+  {
+    "processName": "터널굴착 작업",
+    "stdTaskCd": "P00279",
+    "taskName": "천공",
+    "taskDesc": "점보드릴을 이용하여 장약을 넣을수 있도록 천공",
+    "taskMachines": "양수기, 점보드릴",
+    "stdProcessCd": "T01295"
+  },
+  {
+    "processName": "터널굴착 작업",
+    "stdTaskCd": "P00279",
+    "taskName": "장약",
+    "taskDesc": "장약을 반입하여 결선하는 작업",
+    "taskMachines": "작업대차",
+    "stdProcessCd": "T01296"
+  },
+  {
+    "processName": "터널굴착 작업",
+    "stdTaskCd": "P00279",
+    "taskName": "발파",
+    "taskDesc": "결선완료된 장약을 전기를 이용하여 점화",
+    "taskMachines": "발파기",
+    "stdProcessCd": "T01297"
+  },
+  {
+    "processName": "터널굴착 작업",
+    "stdTaskCd": "P00279",
+    "taskName": "버럭처리",
+    "taskDesc": "발파 후 발파된 버럭을 적재하고 갱 밖으로 반출",
+    "taskMachines": "로우더, 운반차량, 파워쇼벨",
+    "stdProcessCd": "T01298"
+  },
+  {
+    "processName": "터널보강 작업",
+    "stdTaskCd": "P00280",
+    "taskName": "강지보",
+    "taskDesc": "터널 지보재로 사용되는 강지보 작업",
+    "taskMachines": "공구류 등, 작업대차",
+    "stdProcessCd": "T01299"
+  },
+  {
+    "processName": "터널보강 작업",
+    "stdTaskCd": "P00280",
+    "taskName": "숏크리트",
+    "taskDesc": "암반의 이완을 방지하고, 요철부를 채워 응력집중을 방지, 아치를 형성하여 전단저항력을 증대시키는 작업",
+    "taskMachines": "굴착장비 등, 레미콘 차량, 숏크리트 타설기",
+    "stdProcessCd": "T01300"
+  },
+  {
+    "processName": "터널보강 작업",
+    "stdTaskCd": "P00280",
+    "taskName": "락볼트",
+    "taskDesc": " 이완된 암반 표면을 천공하여 깊은 곳의 경암까지 bolt로 고정시켜 암반의 탈락을 방지하고 전단저항력을 크게 하는 작업",
+    "taskMachines": "공구류 등, 작업대차, 천공장비",
+    "stdProcessCd": "T01301"
+  },
+  {
+    "processName": "터널보강 작업",
+    "stdTaskCd": "P00280",
+    "taskName": "특수보강",
+    "taskDesc": "구조물의 노후부를 보수하는 작업",
+    "taskMachines": "공구류, 그라우팅 장비 등, 작업대차, 천공장비",
+    "stdProcessCd": "T01302"
+  },
+  {
+    "processName": "터널방수작업",
+    "stdTaskCd": "P00281",
+    "taskName": "터널방수작업",
+    "taskDesc": "방수쉬트를 터널면에 설치하여 터널면에 방수츨을 형성시켜 침투수를 배수구로 유도시키는 작업",
+    "taskMachines": "고소작업대, 열풍용접기",
+    "stdProcessCd": "T01303"
+  },
+  {
+    "processName": "터널 배수 작업",
+    "stdTaskCd": "P00282",
+    "taskName": "터널 배수 작업",
+    "taskDesc": "터널의 근로자 통행 및 장비의 원활한 이동을 위하여 배수를 통해 지반의 연약화를 방지하고 작업능률을 향상하기 위하여 건조한 상태로 배수 관리하는 작업",
+    "taskMachines": "양수기",
+    "stdProcessCd": "T01304"
+  },
+  {
+    "processName": "특수터널작업",
+    "stdTaskCd": "P00283",
+    "taskName": "특수터널(TBM)공법",
+    "taskDesc": "암반을 거대한 커터 헤드로 깎아, 깎은 바위를 후방에 배출하면서 파 가는 산악 터널 전단면 굴삭 공법",
+    "taskMachines": "TBM머신, 이동식 크레인",
+    "stdProcessCd": "T01305"
+  },
+  {
+    "processName": "특수터널작업",
+    "stdTaskCd": "P00283",
+    "taskName": "특수터널(SHIELD) 공법",
+    "taskDesc": "SHIELD라는 강재원통형의 기계를 수직 작업구내에 투입시켜 CUTTER HEAD를 회전시키면서 지반을 굴착하고 막장면은 각종 보조공법(압기 약액주입)으로 막장면의 붕괴를 방지하면서 실드기계 후방부에 지보공을 설치하는 것을 반복해가면서 TUNNEL을 굴착하는 공법",
+    "taskMachines": "SHIELD머신, 세그먼트, 이동식크레인",
+    "stdProcessCd": "T01306"
+  },
+  {
+    "processName": "가제철(물막이) 작업",
+    "stdTaskCd": "P00284",
+    "taskName": "가제철(물막이) 장비반입",
+    "taskDesc": "물막이 작업을 하기 위해 장비를 반입하는 작업",
+    "taskMachines": "굴삭기 등, 덤프트럭, 항타기",
+    "stdProcessCd": "T01307"
+  },
+  {
+    "processName": "가제철(물막이) 작업",
+    "stdTaskCd": "P00284",
+    "taskName": "가체철(물막이) 흙막이 시공",
+    "taskDesc": "콘크리트를 타설하기 위해 하천 등의 흐름을 막는 작업",
+    "taskMachines": "덤프트럭, 바지선, 예인선, 항타기 등",
+    "stdProcessCd": "T01308"
+  },
+  {
+    "processName": "그라우팅 작업",
+    "stdTaskCd": "P00285",
+    "taskName": "그라우팅 장비 및 자재반입",
+    "taskDesc": "그라우팅 작업을 하기 위해 장비 및 자재를 반입하는 작업",
+    "taskMachines": "운반차량, 인양장비 등, 천공장비",
+    "stdProcessCd": "T01309"
+  },
+  {
+    "processName": "그라우팅 작업",
+    "stdTaskCd": "P00285",
+    "taskName": "그라우팅 천공 및 시공",
+    "taskDesc": "지반에 주입재, 침투대를 주입하는 작업",
+    "taskMachines": "Rod, 천공기 등",
+    "stdProcessCd": "T01310"
+  },
+  {
+    "processName": "특수댐 작업",
+    "stdTaskCd": "P00286",
+    "taskName": "양수발전용 댐",
+    "taskDesc": "복잡한 터널구조, 터널내부에 발전용 터빈 설치, 조수간만 유지를 위한 자동 기계식 수문 등의 공정",
+    "taskMachines": "굴삭기, 기계식 수문, 덤프트럭, 발전용 터빈, 이동식크레인",
+    "stdProcessCd": "T01311"
+  },
+  {
+    "processName": "가설플랜트 작업",
+    "stdTaskCd": "P00287",
+    "taskName": "콘크리트 Batch Plant",
+    "taskDesc": "건설공사에서 사용되는 콘크리트 및 숏크리트를 생산하기 위한 골재저장, 계량장치 및 혼합장치를 가진 Batch Plant 설비",
+    "taskMachines": "Batch Plant 설비",
+    "stdProcessCd": "T01312"
+  },
+  {
+    "processName": "가설플랜트 작업",
+    "stdTaskCd": "P00287",
+    "taskName": "숏크리트 Plant",
+    "taskDesc": "콘크리트 및 숏크리트를 생산하기 위한 설비",
+    "taskMachines": "숏크리트 Plant 설비",
+    "stdProcessCd": "T01313"
+  },
+  {
+    "processName": "가설플랜트 작업",
+    "stdTaskCd": "P00287",
+    "taskName": "크라샤 Plant",
+    "taskDesc": "암석을 파쇄시켜 건설용 골재를 만드는 설비",
+    "taskMachines": "크라샤 Plant",
+    "stdProcessCd": "T01314"
+  },
+  {
+    "processName": "작업 환경",
+    "stdTaskCd": "P00288",
+    "taskName": "조명",
+    "taskDesc": "어두운 장소 등에서 작업을 원활히 할 수 있도록 밝은 빛을 내는 작업",
+    "taskMachines": "조명설비",
+    "stdProcessCd": "T01315"
+  },
+  {
+    "processName": "작업 환경",
+    "stdTaskCd": "P00288",
+    "taskName": "환기",
+    "taskDesc": "오염된 실내 공기를 옥외의 깨끗한 공기와 교환한다든지 오염을 희석시키는 작업",
+    "taskMachines": "환기시설",
+    "stdProcessCd": "T01316"
+  },
+  {
+    "processName": "작업 환경",
+    "stdTaskCd": "P00288",
+    "taskName": "분진",
+    "taskDesc": "물체의 파쇄, 선별, 그 밖의 기계적 처리 또는 퇴적에 수반하여 발생하거나 비산하는 물질",
+    "taskMachines": "에어건, 환기장치",
+    "stdProcessCd": "T01317"
+  },
+  {
+    "processName": "작업 환경",
+    "stdTaskCd": "P00288",
+    "taskName": "배수",
+    "taskDesc": "건물 내에 공급된 물을 여러 가지 목적에 따라 사용하고 그 결과 생기는 물을 신속히 외부로 배출하는 작업 ",
+    "taskMachines": "양수기, 집수정",
+    "stdProcessCd": "T01318"
+  },
+  {
+    "processName": "안전가시설 작업",
+    "stdTaskCd": "P00289",
+    "taskName": "개구부",
+    "taskDesc": "건축물 공사시 재해예방을 위하여 설치하는 안전가시설 중 개구부 가설공사",
+    "taskMachines": "가설기자재 등, 개구부 덮개",
+    "stdProcessCd": "T01319"
+  },
+  {
+    "processName": "안전가시설 작업",
+    "stdTaskCd": "P00289",
+    "taskName": "작업발판",
+    "taskDesc": "건축물 공사시 재해예방을 위하여 설치하는 안전가시설 중  작업발판 가설공사",
+    "taskMachines": "가설기자재 등, 작업발판",
+    "stdProcessCd": "T01320"
+  },
+  {
+    "processName": "안전가시설 작업",
+    "stdTaskCd": "P00289",
+    "taskName": "비계",
+    "taskDesc": "건축물 공사시 재해예방을 위하여 설치하는 안전가시설 중 비계 가설공사 ",
+    "taskMachines": "가설기자재 등, 비계",
+    "stdProcessCd": "T01321"
+  },
+  {
+    "processName": "안전가시설 작업",
+    "stdTaskCd": "P00289",
+    "taskName": "가설통로 또는 가설계단",
+    "taskDesc": "건축물 공사시 재해예방을 위하여 설치하는 안전가시설 중  가설통로 또는 가설계단 가설공사",
+    "taskMachines": "가설기자재 등",
+    "stdProcessCd": "T01322"
+  },
+  {
+    "processName": "가설전기 작업",
+    "stdTaskCd": "P00290",
+    "taskName": "분전반",
+    "taskDesc": "가설전기 작업 시 분전반을 설치하는 작업",
+    "taskMachines": "누전차단기 등, 분전함",
+    "stdProcessCd": "T01323"
+  },
+  {
+    "processName": "가설전기 작업",
+    "stdTaskCd": "P00290",
+    "taskName": "충전부",
+    "taskDesc": "가설전기 작업 시 충전부에 대한 방호조치를 하는 작업",
+    "taskMachines": "누전차단기 등, 분전함",
+    "stdProcessCd": "T01324"
+  },
+  {
+    "processName": "가설전기 작업",
+    "stdTaskCd": "P00290",
+    "taskName": "이동식전기기계기구",
+    "taskDesc": "가설전기 작업 시 이동식 전기기계기구에 대한 방호조치를 하는 작업",
+    "taskMachines": "이동식전기기계기구",
+    "stdProcessCd": "T01325"
+  },
+  {
+    "processName": "가설전기 작업",
+    "stdTaskCd": "P00290",
+    "taskName": "접지",
+    "taskDesc": "가설전기 작업 시 전기기계기구 등에 의한 감전 사고를 예방하기 위해 접지를 설치하는 작업",
+    "taskMachines": "누전차단기 등, 분전함",
+    "stdProcessCd": "T01326"
+  },
+  {
+    "processName": "양중기 작업",
+    "stdTaskCd": "P00291",
+    "taskName": "타워크레인",
+    "taskDesc": "화물 등을 수평, 수직으로 인양하는 타워크레인을 이용한 작업",
+    "taskMachines": "타워크레인",
+    "stdProcessCd": "T01327"
+  },
+  {
+    "processName": "양중기 작업",
+    "stdTaskCd": "P00291",
+    "taskName": "리프트",
+    "taskDesc": "화물 등을 운반하는 리프트를 이용한 작업",
+    "taskMachines": "리프트",
+    "stdProcessCd": "T01328"
+  },
+  {
+    "processName": "양중기 작업",
+    "stdTaskCd": "P00291",
+    "taskName": "곤도라",
+    "taskDesc": "화물 등을 운반 및 고소작업을 하는 곤도라를 이용한 작업",
+    "taskMachines": "곤도라",
+    "stdProcessCd": "T01329"
+  },
+  {
+    "processName": "양중기 작업",
+    "stdTaskCd": "P00291",
+    "taskName": "윈치",
+    "taskDesc": "도르래를 이용하여 중량물을 인양하는 윈치를 이용한 작업",
+    "taskMachines": "윈치",
+    "stdProcessCd": "T01330"
+  },
+  {
+    "processName": "위험기계기구 작업",
+    "stdTaskCd": "P00292",
+    "taskName": "목재가공용둥근톱",
+    "taskDesc": "건축물 공사시 자재가공을 위한 목재가공용둥근톱을 이용한 작업",
+    "taskMachines": "목재가공용둥근톱",
+    "stdProcessCd": "T01331"
+  },
+  {
+    "processName": "위험기계기구 작업",
+    "stdTaskCd": "P00292",
+    "taskName": "연삭기",
+    "taskDesc": "건축물 공사시 자재가공을 위한 연삭기를 이용한 작업",
+    "taskMachines": "연삭기",
+    "stdProcessCd": "T01332"
+  },
+  {
+    "processName": "위험기계기구 작업",
+    "stdTaskCd": "P00292",
+    "taskName": "공기압축기",
+    "taskDesc": "건축물 공사시 자재가공을 위한 공기압축기를 이용한 작업",
+    "taskMachines": "공기압축기",
+    "stdProcessCd": "T01333"
+  },
+  {
+    "processName": "위험기계기구 작업",
+    "stdTaskCd": "P00292",
+    "taskName": "철근절단기 및 절곡기",
+    "taskDesc": "건축물 공사시 자재가공을 위한 철근절단기 및 절곡기를 이용한 작업",
+    "taskMachines": "철근절단기 및 절곡기",
+    "stdProcessCd": "T01334"
+  },
+  {
+    "processName": "위험기계기구 작업",
+    "stdTaskCd": "P00292",
+    "taskName": "이동식 발전기",
+    "taskDesc": "건축물 등 공사시 이동식 발전기를 이용한 작업",
+    "taskMachines": "이동식 발전기",
+    "stdProcessCd": "T01335"
+  },
+  {
+    "processName": "위험기계기구 작업",
+    "stdTaskCd": "P00292",
+    "taskName": "그라우팅장비",
+    "taskDesc": "건축물 등 공사시 그라우팅장비를 이용한 작업",
+    "taskMachines": "그라우팅장비",
+    "stdProcessCd": "T01336"
+  },
+  {
+    "processName": "위험기계기구 작업",
+    "stdTaskCd": "P00292",
+    "taskName": "몰탈 믹서기",
+    "taskDesc": "건축물 등 공사시 몰탈 믹서기를 이용한 작업",
+    "taskMachines": "몰탈 믹서기",
+    "stdProcessCd": "T01337"
+  },
+  {
+    "processName": "위험기계기구 작업",
+    "stdTaskCd": "P00292",
+    "taskName": "열풍기",
+    "taskDesc": "건축물 등 공사시 열풍기를 이용한 작업",
+    "taskMachines": "열풍기",
+    "stdProcessCd": "T01338"
+  },
+  {
+    "processName": "건설기계관리",
+    "stdTaskCd": "P00293",
+    "taskName": "입고 및 보관",
+    "taskDesc": "각종건설기계를 운반차량 등을 이용하여 입고하여 보관장소에 보관",
+    "taskMachines": "건설기계, 화물자동차",
+    "stdProcessCd": "T01339"
+  },
+  {
+    "processName": "건설기계관리",
+    "stdTaskCd": "P00293",
+    "taskName": "유지\/보수",
+    "taskDesc": "입고된 건설기계를 정비 및 유지관리",
+    "taskMachines": "공기압축기, 수공구, 용접기, 작업대, 절단기",
+    "stdProcessCd": "T01340"
+  },
+  {
+    "processName": "건설기계관리",
+    "stdTaskCd": "P00293",
+    "taskName": "대여",
+    "taskDesc": "건설기계를 요청한 현장에 대여",
+    "taskMachines": "건설기계, 화물자동차",
+    "stdProcessCd": "T01341"
+  }
+]
