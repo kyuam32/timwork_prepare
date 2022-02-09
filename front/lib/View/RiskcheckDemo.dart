@@ -3,8 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/services.dart';
 import 'package:front/Model/FactorModel.dart';
+import 'package:front/Model/ManageModel.dart';
 import 'package:front/Model/ProcModel.dart';
 import 'package:front/Model/TaskModel.dart';
+
+class FactorStatus{
+  bool isSelected = false;
+  int managedLevel = 0;
+  List<bool> isCheckedManage;
+
+  FactorStatus(this.isCheckedManage);
+}
 
 class RiskcheckDemo extends StatefulWidget {
   const RiskcheckDemo({Key? key}) : super(key: key);
@@ -15,9 +24,14 @@ class RiskcheckDemo extends StatefulWidget {
 
 
 class _RiskcheckDemoState extends State<RiskcheckDemo> {
-  ProcModel? procSelected = null;
-  TaskModel? taskSelected = null;
-  List<FactorModel>? factorSelected = null;
+  ProcModel? procSelected;
+  TaskModel? taskSelected;
+  List<FactorModel>? factorList;
+  List<ManageModel>? manageList;
+
+  late List<FactorStatus> _factorStatus;
+  late List<bool> _isSelectedFactor;
+  late List<bool> _isManaged;
 
   @override
   Widget build(BuildContext context) {
@@ -41,15 +55,17 @@ class _RiskcheckDemoState extends State<RiskcheckDemo> {
               setState(() {
                 procSelected = data!;
                 taskSelected = null;
-                factorSelected = null;
+                factorList = null;
+                manageList = null;
               });
               // getTaskData(null, procSelected!);
             },
-            dropdownBuilder: _procDropDown,
-            popupItemBuilder: _procPopupItemBuilder,
+            dropdownBuilder: ProcModel.procDropDown,
+            popupItemBuilder: ProcModel.procPopupItemBuilder,
           ),
         ),
 
+        // todo State 관리 수정
         const Divider(),
 
         Container(
@@ -67,14 +83,23 @@ class _RiskcheckDemoState extends State<RiskcheckDemo> {
             ),
             onFind: (String? filter) => getTaskData(filter, procSelected!),
             onChanged: (data) async {
-              List<FactorModel> temp = await getFactorData(data!);
+              List<FactorModel> factors = await getFactorData(data!);
+              List<ManageModel> manages = await getManageData(data);
               setState(() {
                 taskSelected = data;
-                factorSelected = temp;
+                factorList = factors;
+                manageList = manages;
+                _isSelectedFactor = List.generate(factors.length, (i) => false);
+                _isManaged = List.generate(manages.length, (i) => false);
+                _factorStatus = List.generate(factors.length, (i) {
+                  List<bool> temp = [];
+                  manageList?.forEach((element) {element.isUnderFactor(factorList![i]) ? temp.add(false) : null;});
+                  return FactorStatus(temp);
+                });
               });
             },
-            dropdownBuilder: _taskDropDown,
-            popupItemBuilder: _taskPopupItemBuilder,
+            dropdownBuilder: TaskModel.taskDropDown,
+            popupItemBuilder: TaskModel.taskPopupItemBuilder,
           ),
         ),
 
@@ -93,38 +118,70 @@ class _RiskcheckDemoState extends State<RiskcheckDemo> {
                 )
             ),
             child: ListView(
-                children: toFactorList(factorSelected),
+                children: factorListView(factorList),
             ),
           ),
         ),
       ],
     );
   }
-}
 
-List<Widget> toFactorList(List<FactorModel>? list) {
-  if (list == null) {
-    return [Container()];
+  List<Widget> manageListView(int factorIndex) {
+    return manageList?.asMap().entries.map((e) {
+      if (_isSelectedFactor[factorIndex] && e.value.isUnderFactor(factorList![factorIndex])) {
+        return ListTile(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          title: Text(e.value.stdSafetyMeasure),
+          tileColor: Colors.orange.shade50,
+          trailing: IconButton(
+            icon: _isManaged[e.key] ? Icon(Icons.check_box_outlined) : Icon(Icons.check_box_outline_blank),
+            onPressed: () => setState(() {
+              _isManaged[e.key] = !_isManaged[e.key];
+            }),
+          ),
+        );
+      }
+      return const SizedBox.shrink();
+    }).toList() as List<Widget>;
   }
 
-  List<Widget> res = list.map((e) {
-    return Card(
-      child: ListTile(
-        leading: CircleAvatar(
-          child: FittedBox(
-            fit: BoxFit.fitWidth,
-            child: Text(e.riskCate1Name.split(" ").first + "\n  요인",
-              textAlign: TextAlign.center,
-              textScaleFactor: 0.7,
+List<Widget> factorListView(List<FactorModel>? factorList) {
+  if (factorList == null) {
+    return [Container()];
+  }
+  List<Widget> res = factorList.asMap().map((i, e) => MapEntry(i, Card(
+    child: Wrap(
+      children: [
+        ListTile(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          tileColor: _isSelectedFactor[i] ? Colors.amberAccent: null,
+          onTap: () => setState(() {
+            _isSelectedFactor[i] = !_isSelectedFactor[i];
+          }),
+          leading: CircleAvatar(
+            child: FittedBox(
+              fit: BoxFit.fitWidth,
+              child: Text(e.riskCate1Name.split(" ").first + "\n  요인",
+                textAlign: TextAlign.center,
+                textScaleFactor: 0.7,
+              ),
             ),
           ),
+          title: Text(e.riskFactor),
+          subtitle: Text(e.riskRelatedLaw ?? ""),
+          trailing: _isSelectedFactor[i] ? Icon(Icons.arrow_drop_down) : Icon(Icons.arrow_drop_up),
+          isThreeLine: true,
         ),
-        title: Text(e.riskFactor),
-        subtitle: Text(e.riskRelatedLaw ?? ""),
-        isThreeLine: true,
-      ),
-    );
-  }).toList();
+        Wrap(
+          children: manageListView(i)
+          )
+      ],
+    ),
+  ))).values.toList();
 
   res.insert(0, const Card(
     child: ListTile(
@@ -135,102 +192,11 @@ List<Widget> toFactorList(List<FactorModel>? list) {
       // onTap: (){},
     ),
   ));
-
   return res;
 }
 
 
 
-Widget _procDropDown(BuildContext context, ProcModel? item) {
-  if (item == null) {
-    return Container();
-  }
-
-  return Container(
-    child: ListTile(
-      contentPadding: EdgeInsets.all(0),
-      leading: CircleAvatar(),
-      title: Text(item.processName),
-      subtitle: const Text("건설업"),
-    ),
-  );
-}
-
-Widget _procPopupItemBuilder(BuildContext context, ProcModel? item,
-    bool isSelected) {
-  return Container(
-    margin: EdgeInsets.symmetric(horizontal: 8),
-    decoration: !isSelected
-        ? null
-        : BoxDecoration(
-      border: Border.all(color: Theme
-          .of(context)
-          .primaryColor),
-      borderRadius: BorderRadius.circular(5),
-      color: Colors.white,
-    ),
-    child: Card(
-      child: ListTile(
-        selected: isSelected,
-        title: Text(item?.processName ?? ''),
-        subtitle: const Text("건설업"),
-        leading: CircleAvatar(),
-      ),
-    ),
-  );
-}
-
-Widget _taskDropDown(BuildContext context, TaskModel? item) {
-  if (item == null) {
-    return Container();
-  }
-
-  return Container(
-    child: Row(
-      children: [
-        Flexible(
-          flex: 7,
-          child: ListTile(
-            contentPadding: EdgeInsets.all(0),
-            leading: CircleAvatar(),
-            title: Text(item.taskName),
-            subtitle: Text(item.taskDesc),
-          ),
-        ),
-        Flexible(
-          flex: 3,
-          child: ListTile(
-            title: Text("장비"),
-            subtitle: Text(item.taskMachines ?? "없음"),
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
-Widget _taskPopupItemBuilder(BuildContext context, TaskModel? item,
-    bool isSelected) {
-  return Container(
-    margin: EdgeInsets.symmetric(horizontal: 8),
-    decoration: !isSelected
-        ? null
-        : BoxDecoration(
-      border: Border.all(color: Theme
-          .of(context)
-          .primaryColor),
-      borderRadius: BorderRadius.circular(5),
-      color: Colors.white,
-    ),
-    child: Card(
-      child: ListTile(
-        selected: isSelected,
-        title: Text(item?.taskName ?? ''),
-        subtitle: Text(item?.taskDesc ?? ''),
-        leading: CircleAvatar(),
-      ),
-    ),
-  );
 }
 
 Future<List<ProcModel>> getProcData(filter) async {
@@ -258,6 +224,17 @@ Future<List<FactorModel>> getFactorData(TaskModel target) async {
   List<dynamic> data = json.decode(jsonString);
   if (data != null && target != null) {
     return FactorModel.fromJsonList(data)
+        .where((e) => e.isUnderTask(target))
+        .toList();
+  }
+  return [];
+}
+
+Future<List<ManageModel>> getManageData(TaskModel target) async {
+  String jsonString = await rootBundle.loadString("assets/manage_list.json");
+  List<dynamic> data = json.decode(jsonString);
+  if (data != null && target != null) {
+    return ManageModel.fromJsonList(data)
         .where((e) => e.isUnderTask(target))
         .toList();
   }

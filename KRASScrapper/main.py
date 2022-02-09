@@ -175,7 +175,7 @@ def to_csv_task(tasks):
             row['stdTaskCd'],
         ]
         data.append(task)
-    result = pd.DataFrame(data, columns=['processName','stdTaskCd','taskOrder','taskName','taskDesc','taskMachines','taskMaterials','stdProcessCd'])
+    result = pd.DataFrame(data, columns=['processName','stdProcessCd','taskOrder','taskName','taskDesc','taskMachines','taskMaterials','stdTaskCd'])
     to_csv(result, "./data/task_list.csv")
 
 def to_csv_factor(factors):

@@ -28,15 +28,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     print("hello")
-      //   },
-      // ),
-      appBar: AppBar(title: Text(widget.title)),
-      body: Center(
-          child: RiskcheckDemo()
+    return SafeArea(
+      child: Scaffold(
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {
+        //     print("hello")
+        //   },
+        // ),
+        appBar: AppBar(title: Text(widget.title)),
+        body: Center(
+            child: RiskcheckDemo()
+        ),
       ),
     );
   }

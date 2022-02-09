@@ -58,6 +58,7 @@ flutter:
     - assets/factor_list.json
     - assets/process_list.json
     - assets/task_list.json
+    - assets/manage_list.json
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
