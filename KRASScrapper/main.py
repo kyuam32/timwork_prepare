@@ -1,10 +1,18 @@
 # -*- coding: utf-8 -*-
 
 import os
+import re
+
 import requests
 import time
 import json
 import pandas as pd
+from bs4 import BeautifulSoup
+
+
+url = "https://kras.kosha.or.kr/riskcheck/"
+headers = {'Cookie': 'KRASJSESSIONID=LmBoBLZlO1LDL8po97M9yXeso6rFT28HFXjPROWFCwpGwKsDpIXoUihC1NzhiePx.KRAS-WAS1_servlet_engine1; WMONID=PzOWiVvBvBC'}
+
 
 def jsonSort():
     with open("./data/indexlist.json", "r") as read_file:
@@ -37,18 +45,15 @@ def jsonSort():
     frame.to_csv("./result/processlist.csv", index=False)
 
 def req_add_process(stdProcessCd):
-    url = "https://kras.kosha.or.kr/riskcheck/step1/api_addnewprocess"
+    endpoint = url + "step1/api_addnewprocess"
     payload = {"stdProcessCd" : stdProcessCd}
-    headers = {
-        'Cookie': 'KRASJSESSIONID=LmBoBLZlO1LDL8po97M9yXeso6rFT28HFXjPROWFCwpGwKsDpIXoUihC1NzhiePx.KRAS-WAS1_servlet_engine1; WMONID=PzOWiVvBvBC'
-    }
 
-    response = requests.request("POST", url, headers=headers, data=payload).json()
+    response = requests.request("POST", endpoint, headers=headers, data=payload).json()
 
     return response["body"]
 
 def req_del_process(process):
-    url = "https://kras.kosha.or.kr/riskcheck/step1/api_deleteprocess"
+    endpoint = url + "step1/api_deleteprocess"
     payload ={
         "riskProcessSeq": process["riskProcessSeq"],
         "userId": process["userId"],
@@ -56,21 +61,15 @@ def req_del_process(process):
         "insertDate": process["insertDate"],
         "updateDate": process["updateDate"]
     }
-    headers = {
-        'Cookie': 'KRASJSESSIONID=LmBoBLZlO1LDL8po97M9yXeso6rFT28HFXjPROWFCwpGwKsDpIXoUihC1NzhiePx.KRAS-WAS1_servlet_engine1; WMONID=PzOWiVvBvBC',
-    }
 
-    response = requests.request("POST", url, headers=headers, json=payload).json()
+    response = requests.request("POST", endpoint, headers=headers, json=payload).json()
 
     return response
 
 
 def req_get_tasklist(riskProcessSeq):
-    url = f"https://kras.kosha.or.kr/riskcheck/api_getrisktasklist/{riskProcessSeq}"
-    headers = {
-        'Cookie': 'KRASJSESSIONID=LmBoBLZlO1LDL8po97M9yXeso6rFT28HFXjPROWFCwpGwKsDpIXoUihC1NzhiePx.KRAS-WAS1_servlet_engine1; WMONID=PzOWiVvBvBC'
-    }
-    response = requests.request("POST", url, headers=headers, data={}).json()
+    endpoint = url + f"api_getrisktasklist/{riskProcessSeq}"
+    response = requests.request("POST", endpoint, headers=headers, data={}).json()
 
     for rows in response["body"]:
         rows["riskProcessSeq"] = riskProcessSeq
@@ -82,44 +81,79 @@ def req_get_tasklist(riskProcessSeq):
     return response["body"]
 
 def req_save_tasklist(riskProcessSeq, tasks):
-    url = "https://kras.kosha.or.kr/riskcheck/step1/api_savetasklist"
-    headers = {
-        'Cookie': 'KRASJSESSIONID=LmBoBLZlO1LDL8po97M9yXeso6rFT28HFXjPROWFCwpGwKsDpIXoUihC1NzhiePx.KRAS-WAS1_servlet_engine1; WMONID=PzOWiVvBvBC'
-    }
+    endpoint = url + "step1/api_savetasklist"
     payload = {
         "riskProcessSeq": riskProcessSeq,
         "riskTaskListToAdd": tasks,
         "riskTaskListToUpdate": [],
         "riskTaskListToDelete": [],
     }
-    response = requests.request("POST", url, headers=headers, json=payload).json()
+    response = requests.request("POST", endpoint, headers=headers, json=payload).json()
 
-def req_get_detailed_tasklist():
-    url = "https://kras.kosha.or.kr/riskcheck/api_getrisktasklistwithhasfactors"
-    headers = {
-        'Cookie': 'KRASJSESSIONID=LmBoBLZlO1LDL8po97M9yXeso6rFT28HFXjPROWFCwpGwKsDpIXoUihC1NzhiePx.KRAS-WAS1_servlet_engine1; WMONID=PzOWiVvBvBC'
-    }
-    response = requests.request("POST", url, headers=headers).json()
+def req_get_tasklist_seq():
+    endpoint = url + "api_getrisktasklistwithhasfactors"
+    response = requests.request("POST", endpoint, headers=headers).json()
     return response["body"]
 
-def req_get_risk_factors(tasks_detail):
+def req_get_factors(tasks_detail):
     factors = []
     for rows in tasks_detail:
         factor = {
             "riskProcessSeq" : rows['riskProcessSeq'],
+            "riskTaskSeq" : rows['riskTaskSeq'],
             "taskName" : rows['taskName'],
             "stdTaskCd" : rows['stdTaskCd'],
             "factor": None,
         }
-        url = f"https://kras.kosha.or.kr/riskcheck/api_getriskfactorlist/{rows['riskTaskSeq']}"
-        headers = {
-            'Cookie': 'KRASJSESSIONID=LmBoBLZlO1LDL8po97M9yXeso6rFT28HFXjPROWFCwpGwKsDpIXoUihC1NzhiePx.KRAS-WAS1_servlet_engine1; WMONID=PzOWiVvBvBC'
-        }
-        response = requests.request("POST", url, headers=headers).json()
+        endpoint = url + f"api_getriskfactorlist/{rows['riskTaskSeq']}"
+        # get factor list
+        response = requests.request("POST", endpoint, headers=headers).json()
+        # save factor list
+        req_save_factorlist(factor["riskTaskSeq"], response["body"])
+        # update riskFactorSeq
+        response = requests.request("POST", endpoint, headers=headers).json()
         factor["factor"] = (response["body"])
         factors.append(factor)
 
     return factors
+
+def req_save_factorlist(riskTaskSeq, tasks):
+    endpoint = url + "step2/api_savefactorlist"
+    payload = {
+        "riskTaskSeq": riskTaskSeq,
+        "riskFactorListToAdd": tasks,
+        "riskTaskListToUpdate": [],
+        "riskTaskListToDelete": [],
+    }
+    response = requests.request("POST", endpoint, headers=headers, json=payload).json()
+
+def req_get_manage_list(factors):
+    manages = []
+    i = 0
+    for tasks in factors:
+        for rows in tasks['factor']:
+            manage = {
+                'stdTaskCd': rows['stdTaskCd'],
+                'riskFactorSeq': rows['riskFactorSeq'],
+                'riskFactor': rows['riskFactor'],
+                'manage': bs_scrap(rows['riskFactorSeq'])
+            }
+            manages.append(manage)
+
+    return manages
+
+def bs_scrap(riskFactorSeq):
+    endpoint = url + f"step3/riskmeasurepopup/{riskFactorSeq}"
+    response = requests.get(endpoint, headers=headers)
+    soup = BeautifulSoup(response.text, "html.parser")
+    # print(str(soup.findAll('script', type="text/javascript")))
+    res_list = re.findall(r'var\s+riskMeasureMngList\s*=\s*(.*?);', str(soup.findAll('script', type="text/javascript")), flags=re.DOTALL)
+    res_string = ''.join(map(str, res_list))
+    res_json = json.loads(res_string)
+    return res_json
+
+    # res = json.dumps(json_string, ensure_ascii=False)
+    # print(res)
 
 def to_csv(df, path):
     if not os.path.exists(path):
@@ -137,10 +171,11 @@ def to_csv_task(tasks):
             row['taskName'],
             row['taskDesc'],
             row['taskMachines'],
+            row['taskMaterials'],
             row['stdTaskCd'],
         ]
         data.append(task)
-    result = pd.DataFrame(data, columns=['processName','stdTaskCd','taskOrder','taskName','taskDesc','taskMachines','stdProcessCd'])
+    result = pd.DataFrame(data, columns=['processName','stdTaskCd','taskOrder','taskName','taskDesc','taskMachines','taskMaterials','stdProcessCd'])
     to_csv(result, "./data/task_list.csv")
 
 def to_csv_factor(factors):
@@ -158,12 +193,45 @@ def to_csv_factor(factors):
                 sub_row["riskCate2Name"],
                 sub_row["riskFactor"],
                 sub_row["riskRelatedLaw"],
+                sub_row["stdRiskFactorSeq"],
             ]
             data.append(factor)
-    result = pd.DataFrame(data, columns=['taskName','stdTaskCd',"riskCate1Cd","riskCate1Name","riskCate2Cd","riskCate2Name","riskFactor","riskRelatedLaw"])
+    result = pd.DataFrame(data, columns=['taskName','stdTaskCd',"riskCate1Cd","riskCate1Name","riskCate2Cd","riskCate2Name","riskFactor","riskRelatedLaw", "stdRiskFactorSeq"])
     to_csv(result, "./data/factor_list.csv")
 
+def to_csv_manage(manages):
+    data = []
+    for row in manages:
+        stdTaskCd = row['stdTaskCd']
+        riskFactor = row["riskFactor"]
+        for sub_row in row['manage']:
+            manage = [
+                stdTaskCd,
+                sub_row["stdRiskFactorSeq"],
+                sub_row["stdRiskMeasureSeq"],
+                riskFactor,
+                sub_row["stdSafetyMeasure"],
+            ]
+            data.append(manage)
+    result = pd.DataFrame(data, columns=['stdTaskCd', "stdRiskFactorSeq", "stdRiskMeasureSeq", "riskFactor", "stdSafetyMeasure",])
+    to_csv(result, "./data/manage_list.csv")
+
+# 1. process 추가 - step1/api_addnewprocess
+# 2. proc list 받기, process seq 확인 - api_getriskprocesslist
+# 3. proc seq 로 task list 받기, 여기선 task seq 확인 안됨 - api_getrisktasklist/{proc seq}
+# 4. 현재 task list 저장 - step1/api_savetasklist
+# 5. task seq 할당된 task list 받기 - api_getrisktasklistwithhasfactors
+# 6. task seq 로 factor list 받기, - api_getriskfactorlist/{task seq}
+# 7. 현재 factor list 저장
+
+# 7. factor seq 로 manage 방법 받기, GET - step3/riskmeasurepopup/{factor seq}
+# 8. 추출
+
+# def req_get_MeasureMng_List(Factors)
+
+
 if __name__ == '__main__':
+
     p_list = pd.read_csv("./result/process_list.csv")
     data = []
 
@@ -174,19 +242,23 @@ if __name__ == '__main__':
         print(f"curr {i}nd data")
 
         pid = rows["stdProcessCd"]
-
         process = req_add_process(pid)
 
         tasks = req_get_tasklist(process['riskProcessSeq'])
         req_save_tasklist(process['riskProcessSeq'], tasks)
         to_csv_task(tasks)
-        tasks_detail = req_get_detailed_tasklist()
+        tasks_seq = req_get_tasklist_seq()
 
-        factors = req_get_risk_factors(tasks_detail)
+
+        factors = req_get_factors(tasks_seq)
         to_csv_factor(factors)
+
+        manages = req_get_manage_list(factors)
+        to_csv_manage(manages)
 
         req_del_process(process)
 
         i+= 1
-
-        time.sleep(3)
+        # if (i >= 1):
+        #     break
+        time.sleep(5)
