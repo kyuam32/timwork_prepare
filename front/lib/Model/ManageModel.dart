@@ -25,16 +25,6 @@ class ManageModel {
     return stdTaskCd == model.stdTaskCd;
   }
 
-  static List<List<ManageModel>> syncFactorList(List<FactorModel> factors, List<ManageModel> manages){
-    return factors.map((fac) {
-      List<ManageModel> temp = [];
-      manages.forEach((man){
-        man.isUnderFactor(fac) ? temp.add(man) : null;
-      });
-      return temp;
-    }).toList();
-  }
-
   @override
   String toString() => stdSafetyMeasure;
 }
