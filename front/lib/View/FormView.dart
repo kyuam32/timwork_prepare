@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FormView extends StatefulWidget {
+  const FormView({Key? key}) : super(key: key);
+
   @override
   _FormViewState createState() => _FormViewState();
 }
-// todo Factor 작성용 폼 완성하기
+
 class _FormViewState extends State<FormView> {
   final formKey = GlobalKey<FormState>();
 

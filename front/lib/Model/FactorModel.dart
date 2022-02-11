@@ -9,7 +9,10 @@ class FactorModel {
   final String riskCate2Name; // 위험분류 2
   final String riskFactor; // 위험발생 상황 및 결과
   final String? riskRelatedLaw; // 관련법
+  List<ManageModel>? manageList;
   double managedLevel;
+  bool isExpanded;
+
 
   FactorModel(
       this.stdTaskCd,
@@ -18,7 +21,9 @@ class FactorModel {
       this.riskCate2Name,
       this.riskFactor,
       this.riskRelatedLaw,
-      this.managedLevel);
+      this.manageList,
+      this.managedLevel,
+      this.isExpanded);
 
   factory FactorModel.fromJson(Map<String, dynamic> json) {
     return FactorModel(
@@ -28,7 +33,9 @@ class FactorModel {
         json["riskCate2Name"],
         json["riskFactor"],
         json["riskRelatedLaw"],
-        0);
+        [],
+        0,
+    false);
   }
 
   static List<FactorModel> fromJsonList(List<dynamic> list) {
