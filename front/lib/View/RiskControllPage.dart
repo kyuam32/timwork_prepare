@@ -13,17 +13,18 @@ class RiskControllPage extends StatelessWidget {
     return ChangeNotifierProvider<RiskControllState>(
       create: (_) => RiskControllState(),
       child: Scaffold(
-          body: SingleChildScrollView(
-            child: Container(
-              margin: EdgeInsets.fromLTRB(30, 30, 30, 30),
-              child: Column(
-                children: [
-                  RiskSearchBar(),
-                  RiskFactorList(),
-                ],
-              ),
+        appBar: AppBar(title: Text("Hazard Risk Factor analysis")),
+        body: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.fromLTRB(30, 30, 30, 30),
+            child: Column(
+              children: [
+                RiskSearchBar(),
+                RiskFactorList(),
+              ],
             ),
-          )
+          ),
+        ),
       ),
     );
   }

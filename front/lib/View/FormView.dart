@@ -32,7 +32,7 @@ class _FormViewState extends State<FormView> {
                   });
                 },
                 validator: (val) {
-                  if(val.length < 1){
+                  if (val.length < 1) {
                     return "필수 필드입니다.";
                   }
                   return null;
@@ -45,7 +45,7 @@ class _FormViewState extends State<FormView> {
                   });
                 },
                 validator: (val) {
-                  if(val.length < 1){
+                  if (val.length < 1) {
                     return "필수 필드입니다.";
                   }
                   return null;
@@ -58,7 +58,7 @@ class _FormViewState extends State<FormView> {
                   });
                 },
                 validator: (val) {
-                  if(val.length < 1){
+                  if (val.length < 1) {
                     return "필수 필드입니다.";
                   }
                   return null;
@@ -71,41 +71,33 @@ class _FormViewState extends State<FormView> {
     );
   }
 
-  renderStates(){
+  renderStates() {
     return Column(
       children: [
-        Text(
-          "riskCate1Name :$riskCate1Name"
-        ),
-        Text(
-          "riskFactor :$riskFactor"
-        ),
-        Text(
-          "riskRelatedLaw :$riskRelatedLaw"
-        ),
+        Text("riskCate1Name :$riskCate1Name"),
+        Text("riskFactor :$riskFactor"),
+        Text("riskRelatedLaw :$riskRelatedLaw"),
       ],
     );
   }
 
-  renderSubmitButton(){
+  renderSubmitButton() {
     return ElevatedButton(
-      child: Text(
-        "작업 추가",
-      ),
-      onPressed: (){
-        if (formKey.currentState!.validate()){
+      child: Text("작업 추가"),
+      onPressed: () {
+        if (formKey.currentState!.validate()) {
           formKey.currentState?.save();
-          Get.snackbar(
-            "저장 성공",
-            "폼이 저장됐습니다",
-            backgroundColor: Colors.white70,
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text("저장 성공"),
+              backgroundColor: Colors.amberAccent,
+            ),
           );
-          print("gg");
         }
       },
     );
   }
-  
+
   renderTextFormField({
     required String label,
     required FormFieldSetter onSaved,
@@ -116,7 +108,7 @@ class _FormViewState extends State<FormView> {
     assert(validator != null);
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0,16,0,16),
+      padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
       child: Column(
         children: [
           Row(
