@@ -32,7 +32,7 @@ class RiskSearchBar extends StatelessWidget {
             rskState.procCurrent = data;
             rskState.taskCurrent = null;
             rskState.factorList = null;
-            rskState.factorList?.forEach((e) => e.manageList = null);
+            rskState.factorList?.forEach((e) => e.manageList = []);
           },
           dropdownBuilder: procDropDown,
           popupItemBuilder: procPopupItemBuilder,

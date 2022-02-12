@@ -6,52 +6,40 @@ import 'package:front/Model/ProcModel.dart';
 import 'package:front/Model/TaskModel.dart';
 
 class DatabaseProvider {
-  Future<List<ProcModel>> getProcData(filter) async {
-    String jsonString = await rootBundle.loadString("assets/process_list.json");
-    List<dynamic> data = json.decode(jsonString);
-    if (data != null) {
-      return ProcModel.fromJsonList(data);
-    }
-    return [];
+  Future<List<dynamic>> getJsonData(String path) async {
+    String jsonString = await rootBundle.loadString(path);
+    return json.decode(jsonString) ?? [];
   }
 
-  Future<List<TaskModel>> getTaskData(filter, ProcModel? target) async {
-    String jsonString = await rootBundle.loadString("assets/task_list.json");
-    List<dynamic> data = json.decode(jsonString);
-    if (data != null && target != null) {
-      return TaskModel.fromJsonList(data)
-          .where((e) => e.isUnderProcess(target))
-          .toList();
-    }
-    return [];
+  Future<List<ProcModel>> getProcData(filter) async {
+    return ProcModel.fromJsonList(
+        await getJsonData("assets/process_list.json"));
+  }
+
+  Future<List<TaskModel>> getTaskData(filter, ProcModel target) async {
+    return TaskModel.fromJsonList(await getJsonData("assets/task_list.json"))
+        .where((e) => e.isUnderProcess(target))
+        .toList();
   }
 
   Future<List<FactorModel>> getFactorData(TaskModel target) async {
-    String jsonString = await rootBundle.loadString("assets/factor_list.json");
-    List<dynamic> data = json.decode(jsonString);
-    if (data != null && target != null) {
-      return FactorModel.fromJsonList(data)
-          .where((e) => e.isUnderTask(target))
-          .toList();
-    }
-    return [];
+    return FactorModel.fromJsonList(
+            await getJsonData("assets/factor_list.json"))
+        .where((e) => e.isUnderTask(target))
+        .toList();
   }
 
   Future<void> getManageData(List<FactorModel>? factors, TaskModel task) async {
-    if (factors == null) {
+    if (factors == null || task == null) {
       return;
     }
-    String jsonString = await rootBundle.loadString("assets/manage_list.json");
-    List<dynamic> data = json.decode(jsonString);
-    if (data != null && task != null) {
-      List<ManageModel> dataSorted = ManageModel.fromJsonList(data)
-          .where((e) => e.isUnderTask(task))
-          .toList();
-      factors.forEach((factor) {
-        factor.manageList = dataSorted
-            .where((e) => e.isUnderFactor(factor))
+    List<ManageModel> dataSorted =
+        ManageModel.fromJsonList(await getJsonData("assets/manage_list.json"))
+            .where((e) => e.isUnderTask(task))
             .toList();
-      });
-    }
+    factors.forEach((factor) {
+      factor.manageList =
+          dataSorted.where((e) => e.isUnderFactor(factor)).toList();
+    });
   }
 }
