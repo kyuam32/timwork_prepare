@@ -10,7 +10,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: Colors.amber),
+        theme: ThemeData(
+          primarySwatch: Colors.amber,
+          hoverColor: Colors.amber.withOpacity(0.3),
+          splashColor: Colors.amber,
+        ),
         home: MyHomePage());
   }
 }
@@ -25,8 +29,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: RiskControllPage()
-    );
+    return SafeArea(child: RiskControllPage());
   }
 }

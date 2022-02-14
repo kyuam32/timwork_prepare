@@ -2,7 +2,7 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:front/Controller/DatabaseProvider.dart';
 import 'package:front/Model/ProcModel.dart';
-import 'package:front/Model/RiskControllState.dart';
+import 'package:front/Model/RiskProvider.dart';
 import 'package:front/Model/TaskModel.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +11,7 @@ class RiskSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final rskState = Provider.of<RiskControllState>(context);
+    final rskState = Provider.of<RiskProvider>(context);
     final db = DatabaseProvider();
 
     return Column(
@@ -34,8 +34,8 @@ class RiskSearchBar extends StatelessWidget {
             rskState.factorList = null;
             rskState.factorList?.forEach((e) => e.manageList = []);
           },
-          dropdownBuilder: procDropDown,
-          popupItemBuilder: procPopupItemBuilder,
+          dropdownBuilder: dropDown,
+          popupItemBuilder: popupItemBuilder,
         ),
         const Divider(),
         DropdownSearch<TaskModel>(
@@ -49,14 +49,15 @@ class RiskSearchBar extends StatelessWidget {
             contentPadding: EdgeInsets.fromLTRB(12, 12, 0, 0),
             border: OutlineInputBorder(),
           ),
-          onFind: (String? filter) => db.getTaskData(filter, rskState.procCurrent!),
+          onFind: (String? filter) =>
+              db.getTaskData(filter, rskState.procCurrent!),
           onChanged: (data) async {
             rskState.taskCurrent = data;
             rskState.factorList = await db.getFactorData(data!);
             await db.getManageData(rskState.factorList, data);
           },
-          dropdownBuilder: taskDropDown,
-          popupItemBuilder: taskPopupItemBuilder,
+          dropdownBuilder: dropDown,
+          popupItemBuilder: popupItemBuilder,
         ),
         const Divider(),
       ],
@@ -64,97 +65,93 @@ class RiskSearchBar extends StatelessWidget {
   }
 }
 
-Widget procDropDown(BuildContext context, ProcModel? item) {
+Widget dropDown(BuildContext context, dynamic item) {
+  final String title;
+  final String subtitle;
+  final Widget machineContainer;
+  final Widget icon;
+
   if (item == null) {
     return Container();
   }
-
-  return Container(
-    child: ListTile(
-      tileColor: Colors.white70,
-      contentPadding: EdgeInsets.all(0),
-      leading: CircleAvatar(
-        child: Icon(Icons.apartment_rounded),
+  if(item is ProcModel){
+    title = item.processName;
+    subtitle = "건설업";
+    machineContainer = const SizedBox.shrink();
+    icon = Icon(Icons.apartment_rounded);
+  }
+  else if (item is TaskModel){
+    title = item.taskName;
+    subtitle = item.taskDesc;
+    machineContainer = Flexible(
+      flex: 3,
+      child: ListTile(
+        tileColor: Colors.white70,
+        title: const Text("사용 장비"),
+        subtitle: Text(item.taskMachines ?? "없음"),
       ),
-      title: Text(item.processName),
-      subtitle: const Text("건설업"),
-    ),
+    );
+    icon = Icon(Icons.construction_rounded);
+  }
+  else {
+    assert(false);
+    return Text("data error");
+  }
+
+  return Row(
+    children: [
+      Flexible(
+        flex: 7,
+        child: ListTile(
+          tileColor: Colors.white70,
+          contentPadding: EdgeInsets.all(0),
+          leading: CircleAvatar(
+            child: icon,
+          ),
+          title: Text(title),
+          subtitle: Text(subtitle),
+        ),
+      ),
+      machineContainer,
+    ],
   );
 }
 
-Widget procPopupItemBuilder(
-    BuildContext context, ProcModel? item, bool isSelected) {
+Widget popupItemBuilder(
+    BuildContext context, dynamic item, bool isSelected) {
+  final String title;
+  final String subtitle;
+  if(item is ProcModel){
+    title = item.processName;
+    subtitle = "건설업";
+  }
+  else if (item is TaskModel){
+    title = item.taskName;
+    subtitle = item.taskDesc;
+  }
+  else {
+    assert(false);
+    return const Text("data error");
+  }
+
   return Container(
     margin: EdgeInsets.symmetric(horizontal: 8),
     decoration: !isSelected
         ? null
         : BoxDecoration(
-            border: Border.all(color: Theme.of(context).primaryColor),
-            borderRadius: BorderRadius.circular(5),
-            color: Colors.white,
-          ),
+      border: Border.all(color: Theme.of(context).primaryColor),
+      borderRadius: BorderRadius.circular(5),
+      color: Colors.white,
+    ),
     child: Card(
       child: ListTile(
         selected: isSelected,
-        title: Text(item?.processName ?? ''),
-        subtitle: const Text("건설업"),
+        title: Text(title),
+        subtitle: Text(subtitle),
         leading: CircleAvatar(),
       ),
     ),
   );
 }
 
-Widget taskDropDown(BuildContext context, TaskModel? item) {
-  if (item == null) {
-    return Container();
-  }
 
-  return Container(
-    child: Row(
-      children: [
-        Flexible(
-          flex: 7,
-          child: ListTile(
-            tileColor: Colors.white70,
-            contentPadding: EdgeInsets.all(0),
-            leading: CircleAvatar(
-              child: Icon(Icons.construction_rounded),
-            ),
-            title: Text(item.taskName),
-            subtitle: Text(item.taskDesc),
-          ),
-        ),
-        Flexible(
-          flex: 3,
-          child: ListTile(
-            tileColor: Colors.white70,
-            title: Text("장비"),
-            subtitle: Text(item.taskMachines ?? "없음"),
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
-Widget taskPopupItemBuilder(
-    BuildContext context, TaskModel? item, bool isSelected) {
-  return Container(
-    margin: EdgeInsets.symmetric(horizontal: 8),
-    decoration: !isSelected
-        ? null
-        : BoxDecoration(
-            border: Border.all(color: Theme.of(context).primaryColor),
-            borderRadius: BorderRadius.circular(5),
-            color: Colors.white,
-          ),
-    child: Card(
-      child: ListTile(
-        selected: isSelected,
-        title: Text(item?.taskName ?? ''),
-        subtitle: Text(item?.taskDesc ?? ''),
-        leading: CircleAvatar(),
-      ),
-    ),
-  );
-}
