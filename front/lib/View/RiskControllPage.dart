@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:front/Model/RiskControllState.dart';
+import 'package:front/Model/RiskProvider.dart';
 import 'package:front/View/RiskFactorList.dart';
 import 'package:provider/provider.dart';
 import 'RiskSearchBar.dart';
@@ -10,8 +9,8 @@ class RiskControllPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<RiskControllState>(
-      create: (_) => RiskControllState(),
+    return ChangeNotifierProvider<RiskProvider>(
+      create: (_) => RiskProvider(),
       child: Scaffold(
         appBar: AppBar(title: Text("Hazard Risk Factor analysis")),
         body: SingleChildScrollView(

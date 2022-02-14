@@ -22,7 +22,7 @@ class FactorModel {
       this.riskRelatedLaw,
       this.manageList,
       this.managedLevel,
-      this.isExpanded);
+      this.isExpanded,);
 
   factory FactorModel.fromJson(Map<String, dynamic> json) {
     return FactorModel(
@@ -34,7 +34,7 @@ class FactorModel {
         json["riskRelatedLaw"] ?? "",
         [],
         0,
-        false);
+        false,);
   }
 
   static List<FactorModel> fromJsonList(List<dynamic> list) {

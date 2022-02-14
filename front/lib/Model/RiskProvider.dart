@@ -5,8 +5,7 @@ import 'ManageModel.dart';
 import 'ProcModel.dart';
 import 'TaskModel.dart';
 
-class RiskControllState extends ChangeNotifier {
-
+class RiskProvider extends ChangeNotifier {
   ProcModel? _procCurrent;
   TaskModel? _taskCurrent;
   List<FactorModel>? _factorListCurrent;
@@ -38,7 +37,7 @@ class RiskControllState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void toggleFactorExpand(FactorModel factor){
+  void toggleFactorExpand(FactorModel factor) {
     factor.isExpanded = !factor.isExpanded;
     notifyListeners();
   }
@@ -56,7 +55,27 @@ class RiskControllState extends ChangeNotifier {
   }
 
   static int getManagedFactors(List<FactorModel> factors) {
-    return factors.fold<int>(0, (prev, e) => prev + (e.managedLevel == 1 ? 1 : 0));
+    return factors.fold<int>(
+        0, (prev, e) => prev + (e.managedLevel == 1 ? 1 : 0));
   }
+
+  void addFactor(riskCate1Name, riskCate2Name, riskFactor, riskRelatedLaw) {
+    var newone = FactorModel(_taskCurrent!.stdTaskCd, "null", riskCate1Name,
+        riskCate2Name, riskFactor, riskRelatedLaw, [], 0, false);
+    _factorListCurrent!.add(newone);
+    notifyListeners();
+  }
+
+  void addManage(FactorModel factor, String toDo) {
+    var newone = ManageModel(_taskCurrent!.stdTaskCd, factor.stdRiskFactorSeq, toDo, false);
+    factor.manageList.add(newone);
+    notifyListeners();
+  }
+
+  void removeFactor(FactorModel factor){
+    factorList!.removeAt(factorList!.indexOf(factor));
+    notifyListeners();
+  }
+
 
 }
