@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:front/Model/FactorModel.dart';
-import 'package:front/Model/RiskProvider.dart';
-import 'package:front/View/FactorFormView.dart';
-import 'package:front/View/ManageFormView.dart';
+import 'package:front/Provider/RiskProvider.dart';
+import 'package:front/View/Form_Factor.dart';
+import 'package:front/View/Form_Manage.dart';
 import 'package:provider/provider.dart';
 
-class RiskFactorList extends StatefulWidget {
-  const RiskFactorList({Key? key}) : super(key: key);
+class ListFactor extends StatefulWidget {
+  const ListFactor({Key? key}) : super(key: key);
 
   @override
-  State<RiskFactorList> createState() => _RiskFactorListState();
+  State<ListFactor> createState() => _ListFactorState();
 }
 
-class _RiskFactorListState extends State<RiskFactorList> {
+class _ListFactorState extends State<ListFactor> {
   @override
   Widget build(BuildContext context) {
     final rskState = Provider.of<RiskProvider>(context);
@@ -116,7 +116,7 @@ class _RiskFactorListState extends State<RiskFactorList> {
             ],
           );
         }
-        return renderAddButton(const FactorFormView());
+        return renderAddButton(const FormFactor());
       },
     );
   }
@@ -178,7 +178,7 @@ class _RiskFactorListState extends State<RiskFactorList> {
           }
           return Column(
             children: [
-              renderAddButton(ManageFormView(factor: factor)),
+              renderAddButton(FormManage(factor: factor)),
               const SizedBox(
                 height: 20,
               )

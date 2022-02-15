@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:front/Model/RiskProvider.dart';
+import 'package:front/Provider/RiskProvider.dart';
 import 'package:provider/provider.dart';
 
-class FactorFormView extends StatefulWidget {
-  const FactorFormView({Key? key}) : super(key: key);
+class FormFactor extends StatefulWidget {
+  const FormFactor({Key? key}) : super(key: key);
 
   @override
-  _FactorFormViewState createState() => _FactorFormViewState();
+  _FormFactorState createState() => _FormFactorState();
 }
 
-class _FactorFormViewState extends State<FactorFormView> {
+class _FormFactorState extends State<FormFactor> {
   final formKey = GlobalKey<FormState>();
 
   String riskCate1Name = "";

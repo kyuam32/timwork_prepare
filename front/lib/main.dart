@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'View/RiskControllPage.dart';
+import 'View/Page_Main.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.amber,
           hoverColor: Colors.amber.withOpacity(0.3),
           splashColor: Colors.amber,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
         ),
         home: MyHomePage());
   }
@@ -29,6 +32,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: RiskControllPage());
+    return SafeArea(child: PageMain());
   }
 }

@@ -5,7 +5,7 @@ import 'package:front/Model/ManageModel.dart';
 import 'package:front/Model/ProcModel.dart';
 import 'package:front/Model/TaskModel.dart';
 
-class DatabaseProvider {
+class Repository {
   Future<List<dynamic>> getJsonData(String path) async {
     String jsonString = await rootBundle.loadString(path);
     return json.decode(jsonString) ?? [];

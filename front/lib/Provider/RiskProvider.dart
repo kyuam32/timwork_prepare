@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'FactorModel.dart';
-import 'ManageModel.dart';
-import 'ProcModel.dart';
-import 'TaskModel.dart';
+import '../Model/FactorModel.dart';
+import '../Model/ManageModel.dart';
+import '../Model/ProcModel.dart';
+import '../Model/TaskModel.dart';
 
 class RiskProvider extends ChangeNotifier {
   ProcModel? _procCurrent;
@@ -74,6 +74,11 @@ class RiskProvider extends ChangeNotifier {
 
   void removeFactor(FactorModel factor){
     factorList!.removeAt(factorList!.indexOf(factor));
+    notifyListeners();
+  }
+
+  void removeManage(FactorModel factor, ManageModel manage){
+    factor.manageList.removeAt(factor.manageList.indexOf(manage));
     notifyListeners();
   }
 

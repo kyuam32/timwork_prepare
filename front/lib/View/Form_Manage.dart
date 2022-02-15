@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:front/Model/FactorModel.dart';
-import 'package:front/Model/RiskProvider.dart';
+import 'package:front/Provider/RiskProvider.dart';
 import 'package:provider/provider.dart';
 
-class ManageFormView extends StatefulWidget {
-  const ManageFormView({Key? key, required this.factor}) : super(key: key);
+class FormManage extends StatefulWidget {
+  const FormManage({Key? key, required this.factor}) : super(key: key);
   final FactorModel factor;
 
   @override
-  _ManageFormViewState createState() => _ManageFormViewState();
+  _FormManageState createState() => _FormManageState();
 }
 
-class _ManageFormViewState extends State<ManageFormView> {
+class _FormManageState extends State<FormManage> {
   final formKey = GlobalKey<FormState>();
 
   String stdRiskFactorSeq = "";
