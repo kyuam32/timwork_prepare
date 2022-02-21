@@ -42,6 +42,15 @@ class RiskProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void toggleManaged(ManageModel manage, FactorModel factor){
+    manage.isManaged = !manage.isManaged;
+    setManagedLevel(factor);
+    if(factor.managedLevel == 1){
+      factor.isExpanded = !factor.isExpanded;
+    }
+    notifyListeners();
+  }
+
   void setManagedLevel(FactorModel factor) {
     double numberOfManaged = 0;
 
@@ -54,8 +63,8 @@ class RiskProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  static int getManagedFactors(List<FactorModel> factors) {
-    return factors.fold<int>(
+  int getManagedFactors() {
+    return factorList!.fold<int>(
         0, (prev, e) => prev + (e.managedLevel == 1 ? 1 : 0));
   }
 
@@ -69,6 +78,7 @@ class RiskProvider extends ChangeNotifier {
   void addManage(FactorModel factor, String toDo) {
     var newone = ManageModel(_taskCurrent!.stdTaskCd, factor.stdRiskFactorSeq, toDo, false);
     factor.manageList.add(newone);
+    setManagedLevel(factor);
     notifyListeners();
   }
 
@@ -81,6 +91,7 @@ class RiskProvider extends ChangeNotifier {
     factor.manageList.removeAt(factor.manageList.indexOf(manage));
     notifyListeners();
   }
+
 
 
 }

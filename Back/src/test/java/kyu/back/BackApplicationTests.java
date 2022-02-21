@@ -1,4 +1,4 @@
-package kyuam.back;
+package kyu.back;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

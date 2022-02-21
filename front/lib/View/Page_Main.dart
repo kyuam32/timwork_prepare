@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:front/Provider/RiskProvider.dart';
-import 'package:front/View/List_Factor.dart';
-import 'package:front/View/List_mine.dart';
+import 'package:front/View/List_Factor_Manage.dart';
 import 'package:provider/provider.dart';
 import 'Searchbar_Proc_Task.dart';
 
@@ -13,28 +13,38 @@ class PageMain extends StatelessWidget {
     return ChangeNotifierProvider<RiskProvider>(
       create: (_) => RiskProvider(),
       child: Scaffold(
-        appBar: AppBar(title: Text("Hazard Risk Factor analysis")),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: CustomScrollView(
-            slivers: [
-              renderSliverList(),
-            ],
+          appBar: AppBar(
+              title: Text("Hazard Risk Factor analysis"),
+              systemOverlayStyle: SystemUiOverlayStyle(
+                systemStatusBarContrastEnforced: true,
+                statusBarBrightness: Brightness.dark,
+              ),
           ),
-        )
-      ),
+          body: SafeArea(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                children: const [
+                  SearchbarProcTask(),
+                  ListFactorManage(),
+                ],
+              ),
+            ),
+          )),
     );
   }
 }
 
-renderSliverList(){
-  return SliverList(
-    delegate: SliverChildListDelegate(
-        [
+// Sliver version
+renderSliverList() {
+  return CustomScrollView(
+    slivers: [
+      SliverList(
+        delegate: SliverChildListDelegate([
           SearchbarProcTask(),
-          ListManages(),
-          // ListFactor(),
-        ]
-    ),
+          ListFactorManage(),
+        ]),
+      ),
+    ],
   );
 }

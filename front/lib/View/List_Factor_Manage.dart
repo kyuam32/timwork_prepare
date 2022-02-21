@@ -4,15 +4,16 @@ import 'package:front/Provider/RiskProvider.dart';
 import 'package:front/View/Form_Factor.dart';
 import 'package:front/View/Form_Manage.dart';
 import 'package:provider/provider.dart';
+import 'package:front/Style/CustomText.dart';
 
-class ListManages extends StatefulWidget {
-  const ListManages({Key? key}) : super(key: key);
+class ListFactorManage extends StatefulWidget {
+  const ListFactorManage({Key? key}) : super(key: key);
 
   @override
-  _ListManagesState createState() => _ListManagesState();
+  _ListFactorManageState createState() => _ListFactorManageState();
 }
 
-class _ListManagesState extends State<ListManages> {
+class _ListFactorManageState extends State<ListFactorManage> {
   Border boxBorder = Border.all(width: 1, color: Colors.black38);
   Decoration roundBox = BoxDecoration(
       border: Border.all(width: 1, color: Colors.black38), borderRadius: const BorderRadius.all(Radius.circular(4.0)));
@@ -29,17 +30,22 @@ class _ListManagesState extends State<ListManages> {
 
   renderFrame() {
     final rskState = Provider.of<RiskProvider>(context);
-    var height = MediaQuery.of(context).size.height * 0.75;
+    var height = MediaQuery
+        .of(context)
+        .size
+        .height * 0.75;
     var framDeco = BoxDecoration(
       border: Border.all(width: 1, color: Colors.black38),
       borderRadius: const BorderRadius.vertical(
         top: Radius.circular(4.0),
       ),
     );
-
+    var titleString = "작업을 선택해 주세요";
     if (rskState.factorList != null) {
       height = 75;
+      titleString = rskState.factorList!.length.toString() + " 개 요소 중 "  + rskState.getManagedFactors().toString() + " 개 확인 완료";
     }
+
     return Stack(
       children: [
         Container(
@@ -47,11 +53,10 @@ class _ListManagesState extends State<ListManages> {
           width: double.infinity,
           margin: EdgeInsets.only(top: 8),
           decoration: framDeco,
-          child: const Center(
+          child: Center(
             child: Text(
-              // todo 완료도 추가
-              "작업을 선택해 주세요",
-              textScaleFactor: 1.5,
+              titleString,
+              style: Theme.of(context).textTheme.myTitle,
             ),
           ),
         ),
@@ -64,7 +69,6 @@ class _ListManagesState extends State<ListManages> {
             child: const Text(
               "위험 요인",
               style: TextStyle(
-                  // color: Color.fromARGB(170, 0, 0, 0),
                   fontSize: 12,
                   fontWeight: FontWeight.w300),
             ),
@@ -102,15 +106,9 @@ class _ListManagesState extends State<ListManages> {
         separatorBuilder: (context, index) {
           if (index < rskState.factorList!.length) {
             return renderManageTile(
-              ontap: () {},
+              ontap: rskState.toggleManaged,
               index: index,
             );
-
-            //   Container(
-            //   height: 200,
-            //   color: Colors.blue,
-            // );
-
           }
           return SizedBox.shrink();
         });
@@ -119,9 +117,6 @@ class _ListManagesState extends State<ListManages> {
   renderFactorTile({required Function ontap, required int index}) {
     final rskState = Provider.of<RiskProvider>(context);
     final factor = rskState.factorList![index];
-    const styleTextMain = TextStyle(overflow: TextOverflow.ellipsis, fontWeight: FontWeight.w400, fontSize: 13);
-    const styleTextSub =
-        TextStyle(overflow: TextOverflow.ellipsis, fontWeight: FontWeight.w300, color: Colors.black54, fontSize: 11);
 
     return Material(
       child: InkWell(
@@ -131,45 +126,41 @@ class _ListManagesState extends State<ListManages> {
           decoration: BoxDecoration(border: boxBorder),
           child: Stack(
             children: [
-              appendPositon(
-                  alignment: Alignment(-0.95, 0),
-                  child: CircleAvatar()),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 16), child: renderFactorAvatar(factor: factor),),
                   Expanded(
                     child: Padding(
-                      // todo 정렬하는걸 한번 생각해보자
-                      padding: const EdgeInsets.fromLTRB(60, 0, 20, 8),
+                      padding: const EdgeInsets.fromLTRB(0, 0, 20, 16),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text(
-                            factor.riskFactor,
-                            style: styleTextMain,
-                            maxLines: factor.isExpanded ? 5 : 2,
-                          ),
-                          Text(
-                            factor.riskRelatedLaw,
-                            style: styleTextSub,
-                            maxLines: factor.isExpanded ? 2 : 1,
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              factor.riskFactor,
+                              style: Theme.of(context).textTheme.myRiskBodyMain,
+                              maxLines: factor.isExpanded ? 5 : 2,
+                            ),
                           ),
                         ],
                       ),
                     ),
                   ),
-                  // renderDeleteButton(
-                  //   onpress: rskState.removeFactor,
-                  //   todelete: factor,
-                  // )
                 ],
               ),
-              Positioned.fill(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: factor.isExpanded ? Icon(Icons.arrow_drop_up) : Icon(Icons.arrow_drop_down),
+              appendPositon(alignment: Alignment.bottomCenter, child: Padding(
+                padding: const EdgeInsets.only(bottom: 24.0),
+                child: Text(
+                  factor.riskRelatedLaw,
+                  style: Theme.of(context).textTheme.myRiskBodySub,
+                  maxLines: factor.isExpanded ? 2 : 1,
                 ),
               ),
+              ),
+              appendPositon(alignment: Alignment.bottomCenter,
+                  child: factor.isExpanded ? Icon(Icons.arrow_drop_up) : Icon(Icons.arrow_drop_down)),
             ],
           ),
         ),
@@ -180,7 +171,14 @@ class _ListManagesState extends State<ListManages> {
   renderManageTile({required Function ontap, required int index}) {
     final rskState = Provider.of<RiskProvider>(context);
     var factor = rskState.factorList![index];
-    const styleTextManage = TextStyle(overflow: TextOverflow.ellipsis, fontWeight: FontWeight.w300, fontSize: 12);
+    var checkTrue = Icon(
+      Icons.check_circle,
+      color: Colors.green,
+    );
+    var checkFalse = Icon(
+      Icons.circle,
+      color: Colors.red,
+    );
 
     var divider = Container(
       height: 10,
@@ -189,18 +187,24 @@ class _ListManagesState extends State<ListManages> {
         padding: EdgeInsets.symmetric(horizontal: 2),
         child: Divider(
           thickness: 3,
-          color: Theme.of(context).primaryColor,
+          color: Theme
+              .of(context)
+              .primaryColor,
         ),
       ),
     );
 
     if (factor.isExpanded) {
       var manageList = factor.manageList
-          .map((manage) => appendDissmissDelete(
-                key: UniqueKey(),
-                swipeL: rskState.removeManage,
-                para1: factor,
-                para2: manage,
+          .map((manage) =>
+          appendDissmissDelete(
+            key: UniqueKey(),
+            swipeL: rskState.removeManage,
+            para1: factor,
+            para2: manage,
+            child: Material(
+              child: InkWell(
+                onTap: () => ontap(manage, factor),
                 child: Container(
                   height: 60,
                   width: double.infinity,
@@ -210,27 +214,23 @@ class _ListManagesState extends State<ListManages> {
                   ),
                   child: Row(
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 22.0),
-                        child: CircleAvatar(
-                          radius: 6,
-                        ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        child: manage.isManaged ? checkTrue : checkFalse,
                       ),
                       Expanded(
                         child: Text(
                           manage.stdSafetyMeasure,
-                          style: styleTextManage,
+                          style: Theme.of(context).textTheme.myRiskBodyMain2,
                           maxLines: 4,
                         ),
                       ),
-                      SizedBox(
-                        width: 36,
-                      ),
-                      // Icon(Icons.delete)
                     ],
                   ),
                 ),
-              ))
+              ),
+            ),
+          ))
           .toList();
       return Column(
         children: [
@@ -253,31 +253,73 @@ class _ListManagesState extends State<ListManages> {
 
     return Material(
       child: InkWell(
-        onTap: () => showDialog(
-            context: context,
-            builder: (_) => ChangeNotifierProvider.value(
-                  value: rskState,
-                  child: AlertDialog(
-                    content: Container(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      height: MediaQuery.of(context).size.width * 0.8,
-                      child: form,
-                    ),
-                  ),
-                )),
+        onTap: () =>
+            showDialog(
+                context: context,
+                builder: (_) =>
+                    ChangeNotifierProvider.value(
+                      value: rskState,
+                      child: AlertDialog(
+                        content: Container(
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width * 0.6,
+                          height: MediaQuery
+                              .of(context)
+                              .size
+                              .width * 0.8,
+                          child: form,
+                        ),
+                      ),
+                    )),
         child: Container(
           height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
-            border: boxBorder,
-          ),
+              border: boxBorder, borderRadius: BorderRadius.vertical(bottom: Radius.circular(4.0), top: Radius.zero)),
           child: Icon(Icons.add),
         ),
       ),
     );
   }
 
-  renderRiskCalculater() {}
+  renderFactorAvatar({required FactorModel factor}) {
+    var icon = factor.managedLevel > 0.79
+        ? Icons.check_circle
+        : Icons.circle;
+    var color = factor.managedLevel > 0.79
+        ? Colors.lightGreen
+        : factor.managedLevel > 0.49
+        ? Colors.amber
+        : Colors.deepOrange;
+
+    return Icon(
+      icon,
+      color: color,
+      // todo "Avatar with Somthing" version Legacy
+      // child: FittedBox(
+      //   fit: BoxFit.fitWidth,
+      //   child: Text(
+      //     factor.riskCate1Name
+      //         .split(" ")
+      //         .first,
+      //     textAlign: TextAlign.center,
+      //     textScaleFactor: 0.7,
+      //   ),
+      // ),
+    );
+  }
+
+  renderSnackBar({required String text}) {
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(text),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+  }
 
   appendDissmissDelete({required Widget child, required Key key, required Function swipeL, para1, para2}) {
     return Dismissible(
@@ -289,10 +331,13 @@ class _ListManagesState extends State<ListManages> {
         } else {
           swipeL(para1, para2);
         }
+        renderSnackBar(text: "항목이 삭제되었습니다.");
       },
       background: Container(
         alignment: Alignment.centerRight,
-        color: Theme.of(context).primaryColor,
+        color: Theme
+            .of(context)
+            .primaryColor,
         child: const Padding(
           padding: EdgeInsets.all(16.0),
           child: Icon(Icons.delete),

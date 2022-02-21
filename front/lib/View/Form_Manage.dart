@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:front/Model/FactorModel.dart';
 import 'package:front/Provider/RiskProvider.dart';
 import 'package:provider/provider.dart';
+import 'package:front/Style/CustomText.dart';
 
 class FormManage extends StatefulWidget {
   const FormManage({Key? key, required this.factor}) : super(key: key);
@@ -23,17 +24,15 @@ class _FormManageState extends State<FormManage> {
         SliverFillRemaining(
           hasScrollBody: false,
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 SizedBox(
                   height: 75,
                   child: Text(
                     "[ " + widget.factor.riskFactor + " ] 대처방안",
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.myTitle,
                   ),
                 ),
                 Expanded(
@@ -83,6 +82,7 @@ class _FormManageState extends State<FormManage> {
             SnackBar(
               content: const Text("새 항목이 추가됐습니다"),
               backgroundColor: Theme.of(context).colorScheme.primary,
+              behavior: SnackBarBehavior.floating,
             ),
           );
         }
@@ -98,28 +98,30 @@ class _FormManageState extends State<FormManage> {
   }) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Text(
-                label,
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ],
-          ),
-          TextFormField(
-            onSaved: onSaved,
-            validator: validator,
-            autovalidateMode: AutovalidateMode.always,
-            decoration: InputDecoration(
-              border: UnderlineInputBorder(),
-              labelText: description,
+      child: SizedBox(
+        height: 120,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              label,
+              style: Theme.of(context).textTheme.myFormBodyMain,
             ),
-          ),
-        ],
+            Text(
+              description,
+              style: Theme.of(context).textTheme.myFormBodySub,
+            ),
+            TextFormField(
+              onSaved: onSaved,
+              validator: validator,
+              autovalidateMode: AutovalidateMode.always,
+              decoration: InputDecoration(
+                border: UnderlineInputBorder(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

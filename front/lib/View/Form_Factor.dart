@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:front/Provider/RiskProvider.dart';
 import 'package:provider/provider.dart';
+import 'package:front/Style/CustomText.dart';
 
 class FormFactor extends StatefulWidget {
   const FormFactor({Key? key}) : super(key: key);
@@ -33,10 +34,7 @@ class _FormFactorState extends State<FormFactor> {
                   height: 75,
                   child: Text(
                     "[ " + rskState.taskCurrent!.taskName + " ] 작업 위험요인",
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: Theme.of(context).textTheme.myTitle,
                   ),
                 ),
                 Form(
@@ -123,6 +121,7 @@ class _FormFactorState extends State<FormFactor> {
             SnackBar(
               content: const Text("새 항목이 추가됐습니다"),
               backgroundColor: Theme.of(context).colorScheme.primary,
+              behavior: SnackBarBehavior.floating,
             ),
           );
         }
@@ -138,28 +137,30 @@ class _FormFactorState extends State<FormFactor> {
   }) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Text(
-                label,
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ],
-          ),
-          TextFormField(
-            onSaved: onSaved,
-            validator: validator,
-            autovalidateMode: AutovalidateMode.always,
-            decoration: InputDecoration(
-              border: UnderlineInputBorder(),
-              labelText: description,
+      child: SizedBox(
+        height: 120,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              label,
+              style: Theme.of(context).textTheme.myFormBodyMain,
             ),
-          ),
-        ],
+            Text(
+              description,
+              style: Theme.of(context).textTheme.myFormBodySub,
+            ),
+            TextFormField(
+              onSaved: onSaved,
+              validator: validator,
+              autovalidateMode: AutovalidateMode.always,
+              decoration: InputDecoration(
+                border: UnderlineInputBorder(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
