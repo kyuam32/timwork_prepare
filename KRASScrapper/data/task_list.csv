@@ -1,4 +1,4 @@
-﻿processName,stdTaskCd,taskOrder,taskName,taskDesc,taskMachines,taskMaterials,stdProcessCd
+﻿processName,stdProcessCd,taskOrder,taskName,taskDesc,taskMachines,taskMaterials,stdTaskCd
 기초파일작업,P00242,1,"기초파일 자재, 장비반입, 운반, 보관",파일을 박기위해 필요한 장비를 반입하고 기초파일을 운반하여 보관하는 작업,지게차,,T01186
 기초파일작업,P00242,2,기초파일 천공,파일을 박기위해 지반에 구멍을 내는 작업,"굴삭기, 천공기, 항타기",,T01187
 기초파일작업,P00242,3,기초파일 항타,항타기와 해머를 이용하여 구구멍을 낸 지반에 파일을 박는 작업,"항타기, 해머",,T01188
