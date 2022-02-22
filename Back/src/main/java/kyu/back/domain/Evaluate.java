@@ -1,35 +1,49 @@
 package kyu.back.domain;
 
-import kyu.back.domain.Factor.Factor;
-import kyu.back.domain.Task.Task;
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import kyu.back.api.dto.EvaluateDto;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Evaluate {
     @Id
     @GeneratedValue
     @Column(name = "evaluate_id", nullable = false)
-    private Long evaluate_id;
+    private Long id;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_id")
     private Task task;
 
+    @JsonManagedReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "factor_id")
     private Factor factor;
 
-    @Embedded
-    @AttributeOverride(name = "frequency", column = @Column(name = "before_frequency"))
-    @AttributeOverride(name = "intensity", column = @Column(name = "before_intensity"))
-    private Score scoreBefore;
+    private int before_frequency;
+    private int before_intensity;
+    private int after_frequency;
+    private int after_intensity;
 
+    static public Evaluate fromDto(EvaluateDto evaluateDto) {
+        return Evaluate.builder()
+                .evaluateDto(evaluateDto)
+                .build();
+    }
 
-    @Embedded
-    @AttributeOverride(name = "frequency", column = @Column(name = "after_frequency"))
-    @AttributeOverride(name = "intensity", column = @Column(name = "after_intensity"))
-    private Score scoreAfter;
+    @Builder
+    public Evaluate(EvaluateDto evaluateDto) {
+        this.id = evaluateDto.getId();
+        this.before_frequency = evaluateDto.getBefore_frequency();
+        this.before_intensity = evaluateDto.getBefore_intensity();
+        this.after_frequency = evaluateDto.getAfter_frequency();
+        this.after_intensity = evaluateDto.getAfter_intensity();
+    }
 }
