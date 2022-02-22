@@ -1,6 +1,5 @@
 package kyu.back.domain;
 
-import kyu.back.domain.Factor.Factor;
 import lombok.Getter;
 
 import javax.persistence.*;
