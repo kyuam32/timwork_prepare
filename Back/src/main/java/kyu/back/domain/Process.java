@@ -24,17 +24,17 @@ public class Process extends BaseEntity {
     private String stdCode;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "process", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "process", cascade = CascadeType.ALL)
     private List<Task> taskList = new ArrayList<>();
 
     public void addTask(Task task) {
         this.taskList.add(task);
         task.setProcess(this);
     }
+
     public void jointTask(List<Task> taskList) {
         taskList.forEach(this::addTask);
     }
-
 
 
     static public Process fromDto(ProcessDto processDto) {

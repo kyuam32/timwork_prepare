@@ -29,7 +29,7 @@ public class ControlService {
 
         control.setManage(manage);
 
-        return controlRepository.save(control);
+        return control;
     }
 
 }
