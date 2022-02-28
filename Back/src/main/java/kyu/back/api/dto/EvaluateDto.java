@@ -13,18 +13,18 @@ import lombok.NoArgsConstructor;
 public class EvaluateDto {
     private Long id;
     private FactorDto factor;
-    private int before_frequency;
-    private int before_intensity;
-    private int after_frequency;
-    private int after_intensity;
+    private int beforeFrequency;
+    private int beforeIntensity;
+    private int afterFrequency;
+    private int afterIntensity;
 
     static public EvaluateDto toDto(Evaluate evaluate) {
         return EvaluateDto.builder()
                 .id(evaluate.getId())
-                .before_frequency(9)
-                .after_frequency(9)
-                .before_intensity(9)
-                .after_intensity(9)
+                .beforeFrequency(9)
+                .afterFrequency(9)
+                .beforeIntensity(9)
+                .afterIntensity(9)
                 .build();
     }
 
