@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:front/Model/AjaxButton.dart';
 import 'package:front/Provider/RiskProvider.dart';
 import 'package:front/View/List_Factor_Manage.dart';
 import 'package:provider/provider.dart';
+
 import 'Searchbar_Proc_Task.dart';
 
 class PageMain extends StatelessWidget {
@@ -30,7 +32,9 @@ class PageMain extends StatelessWidget {
                 ],
               ),
             ),
-          )),
+          ),
+        floatingActionButton: AjaxButton(),
+      ),
     );
   }
 }

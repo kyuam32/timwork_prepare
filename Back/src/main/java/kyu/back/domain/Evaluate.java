@@ -41,9 +41,9 @@ public class Evaluate {
     @Builder
     public Evaluate(EvaluateDto evaluateDto) {
         this.id = evaluateDto.getId();
-        this.before_frequency = evaluateDto.getBefore_frequency();
-        this.before_intensity = evaluateDto.getBefore_intensity();
-        this.after_frequency = evaluateDto.getAfter_frequency();
-        this.after_intensity = evaluateDto.getAfter_intensity();
+        this.before_frequency = evaluateDto.getBeforeFrequency();
+        this.before_intensity = evaluateDto.getBeforeIntensity();
+        this.after_frequency = evaluateDto.getAfterFrequency();
+        this.after_intensity = evaluateDto.getAfterIntensity();
     }
 }
