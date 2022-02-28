@@ -19,11 +19,11 @@ public class ManageService {
 
     public Manage update(Long id, ManageDto manageDto) {
         Manage manage = Optional.ofNullable(id)
-                .map(i -> manageRepository
-                        .findById(i)
-                        .orElseGet(() -> Manage.fromDto(manageDto)))
+                .map(i -> manageRepository.findById(i).get())
+                .or(() -> manageRepository.findFirstByName(manageDto.getName()))
                 .orElseGet(() -> Manage.fromDto(manageDto));
-        return manageRepository.save(manage);
+
+        return manage;
     }
 
 }

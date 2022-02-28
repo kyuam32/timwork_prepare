@@ -27,7 +27,7 @@ public class EvalutateService {
 
         Factor factor = factorService.update(evaluateDto.getFactor().getId(), evaluateDto.getFactor());
         evaluate.setFactor(factor);
-        return evaluateRepository.save(evaluate);
+        return evaluate;
     }
 
 }
