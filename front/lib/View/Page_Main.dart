@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:front/Model/AjaxButton.dart';
 import 'package:front/Provider/RiskProvider.dart';
+import 'package:front/View/AjaxButton.dart';
 import 'package:front/View/List_Factor_Manage.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +17,7 @@ class PageMain extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
               title: Text("Hazard Risk Factor analysis"),
-              systemOverlayStyle: SystemUiOverlayStyle(
+              systemOverlayStyle: const SystemUiOverlayStyle(
                 systemStatusBarContrastEnforced: true,
                 statusBarBrightness: Brightness.dark,
               ),
