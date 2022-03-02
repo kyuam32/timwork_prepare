@@ -14,13 +14,13 @@ class RiskProvider extends ChangeNotifier {
     return _procCurrent;
   }
 
+  TaskModel? get taskCurrent {
+    return _taskCurrent;
+  }
+
   set procCurrent(ProcModel? value) {
     _procCurrent = value;
     notifyListeners();
-  }
-
-  TaskModel? get taskCurrent {
-    return _taskCurrent;
   }
 
   set taskCurrent(TaskModel? value) {
@@ -91,7 +91,4 @@ class RiskProvider extends ChangeNotifier {
     factor.manageList.removeAt(factor.manageList.indexOf(manage));
     notifyListeners();
   }
-
-
-
 }
